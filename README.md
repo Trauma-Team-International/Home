@@ -44,6 +44,7 @@ To answer these critically important questions, we leverage three gold standard 
 - Literature and desk research
 - Quantitative data analysis
 - Monte Carlo simulation
+- Data visualization
 
 At the moment, we have several work in progress or open research tracks: 
 
