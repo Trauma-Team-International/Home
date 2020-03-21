@@ -24,6 +24,11 @@ Trauma Team International is an open collective focused on <strong>providing cri
 
 Trauma Team International use research and statistical methods to answer critically important questions about prevention of Coronavirus, and its effects on the healthcare system. 
 
+Questions we are focused on answering and providing insights for include: 
+
+>*1) "we have x ventilators / ventilator operators and have y patients immediately needing ventilation, but x is smaller than y, who is least likely to survive"*
+
+>*2) "how can you avoid things escalating to the level where ventilator is needed in the first place."*
 <hr>
 
 ### :gem: why?
