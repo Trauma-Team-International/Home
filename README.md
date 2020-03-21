@@ -40,21 +40,11 @@ To answer these critically important questions, we leverage three gold standard 
 - Quantitative data analysis
 - Monte Carlo simulation
 
+At the moment, we have several work in progress or open research tracks: 
 
-
-
-
-<hr>
-
-### 💾 How can I contribute?
-
-Stable version:
-
-#### `pip install talos`
-
-Daily development version:
-
-#### `pip install git+https://github.com/autonomio/talos`
+- [ ] perform a cursory literature view on COVID-19
+- [ ] use MIMIC-III dataset to evaluate pneumonia and ventilation in ICU context
+- [ ] create a simulation model for evaluating healthcare system burden scenarios
 
 <hr>
 
