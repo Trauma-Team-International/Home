@@ -58,7 +58,7 @@ At the moment, we have several work in progress or open research tracks:
 
 | I want to...                     | Go to...                                                  |
 | -------------------------------- | ---------------------------------------------------------- |
-| **...connect with others**      | [Spectrum Chat]                                            |
+| **...connect with others**      | [Discord]                                            |
 | **...read the wiki**           | [Wiki]                                  |
 | **...suggest something**  | [GitHub Issue Tracker]                                     |
 
