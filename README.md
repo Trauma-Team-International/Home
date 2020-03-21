@@ -31,6 +31,12 @@ Questions we are focused on answering and providing insights for include:
 >*2) "how can you avoid things escalating to the level where ventilator is needed in the first place."*
 <hr>
 
+Other objectives: 
+
+- [ ] make available meaningful datasets for other reseachers
+- [ ] make available a tool that dramatically increase access to literature
+- [ ] make available statistical and machine learning models for other researchers
+
 ### :gem: why?
 
 In many countries, healthcare systems have already been stretched thin and are not well prepared to take on the surge of coronavirus patients. Intensive Care Units (ICUs) are particularly at risk, due to limitations pertaining to ventilation machines and staff qualified to operate such machines. Once there are more patients needing ventilation than there are available ventilators or people capable of operating ventilators, patients that could otherwise been saved, will die. 
