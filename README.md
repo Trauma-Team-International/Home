@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="#what">what?</a> •
-  <a href="#why">why?"</a> •
-  <a href="#how">how?</a> •
+  <a href="#why">why?</a> •
+  <a href="#wrench-how">how?</a> •
   <a href="#how-to-get-involved">how to get involved?</a> •
   <a href="https://autonom.io">About Autonomio</a> •
   <a href="https://github.com/autonomio/talos/issues">Issues</a> •
