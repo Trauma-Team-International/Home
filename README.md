@@ -7,8 +7,8 @@
 <h3 align="center">Trauma Team International - Coronavirus Taskforce</h3>
 
 <p align="center">
-  <a href="#what">what?</a> •
-  <a href="#why">why?</a> •
+  <a href="#sos-what">what?</a> •
+  <a href="#gem-why">why?</a> •
   <a href="#wrench-how">how?</a> •
   <a href="#how-to-get-involved">how to get involved?</a> •
   <a href="https://autonom.io">About Autonomio</a> •
@@ -20,13 +20,13 @@
 Trauma Team International is an open collective focused on <strong>providing critically important insights</strong> to coronavirus decision makers. 
 </p>
 
-### what?
+### :sos: what?
 
 Trauma Team International use research and statistical methods to answer critically important questions about prevention of Coronavirus, and its effects on the healthcare system. 
 
 <hr>
 
-### 📈 why?
+### :gem: why?
 
 In many countries, healthcare systems have already been stretched thin and are not well prepared to take on the surge of coronavirus patients. Intensive Care Units (ICUs) are particularly at risk, due to limitations pertaining to ventilation machines and staff qualified to operate such machines. Once there are more patients needing ventilation than there are available ventilators or people capable of operating ventilators, patients that could otherwise been saved, will die. 
 
