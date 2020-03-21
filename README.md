@@ -7,56 +7,28 @@
 <h3 align="center">Trauma Team International - Coronavirus Taskforce</h3>
 
 <p align="center">
-  <a href="#Talos">what?</a> •
-  <a href="#Key-Features">why"</a> •
-  <a href="#Examples">how?</a> •
-  <a href="#Install">how can I contribute?</a> •
+  <a href="#what">what?</a> •
+  <a href="#why">why?"</a> •
+  <a href="#how">how?</a> •
+  <a href="#how-can-i-contribute">how can I contribute?</a> •
   <a href="https://autonom.io">About Autonomio</a> •
   <a href="https://github.com/autonomio/talos/issues">Issues</a> •
   <a href="#License">License</a>
 </p>
 <hr>
 <p align="center">
-Talos radically changes the ordinary Keras workflow by <strong>fully automating hyperparameter tuning</strong> and <strong>model evaluation</strong>. Talos exposes Keras functionality entirely and there is no new syntax or templates to learn.
-</p>
-<p align="center">
-<img src='https://i.ibb.co/3NFH646/keras-model-to-talos.gif' width=550px>
+Trauma Team International is an open collective focused on <strong>providing critically important insights</strong> to coronavirus decision makers. 
 </p>
 
-### Talos
+### what?
 
-TL;DR
-
-Talos radically transforms ordinary Keras workflows without taking away any of Keras.
-
-  - works with ANY Keras model
-  - takes minutes to implement
-  - no new syntax to learn
-  - adds zero new overhead to your workflow
-
-Talos is made for data scientists and data engineers that want to remain in **complete control of their Keras models**, but are tired of mindless parameter hopping and confusing optimization solutions that add complexity instead of reducing it. Within minutes, without learning any new syntax, Talos allows you to configure, perform, and evaluate hyperparameter optimization experiments that yield state-of-the-art results across a wide range of prediction tasks. Talos provides the **simplest and yet most powerful** available method for hyperparameter optimization with Keras.
+Trauma Team International use research and statistical methods to answer critically important questions about prevention of Coronavirus, and its effects on the healthcare system. 
 
 <hr>
 
-### :wrench: Key Features
+### :wrench: why?
 
-Based on what no doubt constitutes a "biased" review (being our own) of more than ~30 hyperparameter tuning and optimization solutions, Talos comes on top in terms of intuitive, easy-to-learn, highly permissive access to critical hyperparameter optimization capabilities. Key features include:
-
-  - Single-line optimize-to-predict pipeline `talos.Scan(x, y, model, params).predict(x_test, y_test)`
-  - Automated hyperparameter optimization
-  - Model generalization evaluator
-  - Experiment analytics
-  - Pseudo, Quasi, and Quantum Random search options
-  - Grid search
-  - Probabilistic optimizers
-  - Single file custom optimization strategies
-  - Dynamically change optimization strategy during experiment
-  - Support for man-machine cooperative optimization strategy
-  - Model candidate generality evaluation
-  - Live training monitor
-  - Experiment analytics
-
-Talos works on **Linux, Mac OSX**, and **Windows** systems and can be operated cpu, gpu, and multi-gpu systems.
+In many countries, healthcare systems have already been stretched thin and are not well prepared to take on the surge of coronavirus patients. Intensive Care Units (ICUs) are particularly at risk, due to limitations pertaining to ventilation machines and staff qualified to operate such machines. Once there are more patients needing ventilation than there are available ventilators or people capable of operating ventilators, patients that could otherwise been saved, will die. 
 
 <hr>
 
