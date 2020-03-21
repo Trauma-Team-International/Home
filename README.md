@@ -10,7 +10,7 @@
   <a href="#what">what?</a> •
   <a href="#why">why?"</a> •
   <a href="#how">how?</a> •
-  <a href="#how-can-i-contribute">how can I contribute?</a> •
+  <a href="#how-to-get-involved">how to get involved?</a> •
   <a href="https://autonom.io">About Autonomio</a> •
   <a href="https://github.com/autonomio/talos/issues">Issues</a> •
   <a href="#License">License</a>
@@ -26,35 +26,27 @@ Trauma Team International use research and statistical methods to answer critica
 
 <hr>
 
-### :wrench: why?
+### 📈 why?
 
 In many countries, healthcare systems have already been stretched thin and are not well prepared to take on the surge of coronavirus patients. Intensive Care Units (ICUs) are particularly at risk, due to limitations pertaining to ventilation machines and staff qualified to operate such machines. Once there are more patients needing ventilation than there are available ventilators or people capable of operating ventilators, patients that could otherwise been saved, will die. 
 
 <hr>
 
-### 📈 Examples
+### :wrench: how?
 
-Get the below code [here](https://gist.github.com/mikkokotila/4c0d6298ff0a22dc561fb387a1b4b0bb). More examples further below.
+To answer these critically important questions, we leverage three gold standard methods:
 
-<img src=https://i.ibb.co/VWd8Bhm/Screen-Shot-2019-01-06-at-11-26-32-PM.png>
+- Literature and desk research
+- Quantitative data analysis
+- Monte Carlo simulation
 
-The *Simple* example below is more than enough for starting to use Talos with any Keras model. *Field Report* has +2,600 claps on Medium because it's more entertaining.
 
-[Simple](https://nbviewer.jupyter.org/github/autonomio/talos/blob/master/examples/A%20Very%20Short%20Introduction%20to%20Hyperparameter%20Optimization%20of%20Keras%20Models%20with%20Talos.ipynb)  [1-2 mins]
 
-[Concise](https://nbviewer.jupyter.org/github/autonomio/talos/blob/master/examples/Hyperparameter%20Optimization%20on%20Keras%20with%20Breast%20Cancer%20Data.ipynb)  [~5 mins]
 
-[Comprehensive](https://nbviewer.jupyter.org/github/autonomio/talos/blob/master/examples/Hyperparameter%20Optimization%20with%20Keras%20for%20the%20Iris%20Prediction.ipynb)  [~10 mins]
-
-[Field Report](https://towardsdatascience.com/hyperparameter-optimization-with-keras-b82e6364ca53)  [~15 mins]
-
-For more information on how Talos can help with your Keras workflow, visit the [User Manual](https://autonomio.github.io/talos/).
-
-You may also want to check out a visualization of the [Talos Hyperparameter Tuning workflow](https://github.com/autonomio/talos/wiki/Workflow).
 
 <hr>
 
-### 💾 Install
+### 💾 How can I contribute?
 
 Stable version:
 
@@ -66,23 +58,21 @@ Daily development version:
 
 <hr>
 
-### 💬 How to get Support
+### 💬 How to get involved
 
 | I want to...                     | Go to...                                                  |
 | -------------------------------- | ---------------------------------------------------------- |
-| **...troubleshoot**           | [Docs] · [Wiki] · [GitHub Issue Tracker]                   |
-| **...report a bug**           | [GitHub Issue Tracker]                                     |
-| **...suggest a new feature**  | [GitHub Issue Tracker]                                     |
-| **...get support**            | [Stack Overflow] · [Spectrum Chat]                         |
-| **...have a discussion**      | [Spectrum Chat]                                            |
+| **...connect with others**      | [Spectrum Chat]                                            |
+| **...read the wiki**           | [Wiki]                                  |
+| **...suggest something**  | [GitHub Issue Tracker]                                     |
 
 <hr>
 
 ### 📢 Citations
 
-If you use Talos for published work, please cite:
+If you use Trauma Team International's research, data, or findings for published work, please cite:
 
-`Autonomio Talos [Computer software]. (2019). Retrieved from http://github.com/autonomio/talos.`
+`Autonomio. (2019). Retrieved from http://github.com/trauma-team-international/talos.`
 
 <hr>
 
@@ -90,8 +80,6 @@ If you use Talos for published work, please cite:
 
 [MIT License](https://github.com/autonomio/talos/blob/master/LICENSE)
 
-[github issue tracker]: https://github.com/automio/talos/issues
-[docs]: https://autonomio.github.io/talos/
+[github issue tracker]: https://github.com/automio/trauma-team-international/issues
 [wiki]: https://github.com/autonomio/talos/wiki
-[stack overflow]: https://stackoverflow.com/questions/tagged/talos
-[spectrum chat]: https://spectrum.chat/talos
+[discord]: https://discord.gg/t7vk27
