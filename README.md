@@ -49,6 +49,9 @@ To answer these critically important questions, we leverage three gold standard 
 
 - Literature and desk research
 - Quantitative data analysis
+  - Descriptive analysis
+  - Statistical analysis
+  - Machine learning
 - Monte Carlo simulation
 - Data visualization
 
