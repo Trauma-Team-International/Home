@@ -20,3 +20,4 @@ name | description | type
 **ventilation_duration_hours** | Total hours of ventilation | (Numeric)
 **expired_during_ventilation** | Patient expired during ventilation | (Boolean)
 **hours_before_ventilation** | Time gap in hours between admission and first ventilation | (Integer)
+**diagnosed_ards** | Whether diagnosed with ARDS | (Boolean)
