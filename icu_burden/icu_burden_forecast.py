@@ -1,7 +1,7 @@
 def icu_burden_projection(incubation_period=5,
-                          reproduction_rate=2.2,
+                          reproduction_rate=2.1,
                           infectious_period=7,
-                          tested_daily=2300,
+                          tested_daily=1000,
                           positive_rate=.13,
                           hospitalization_rate=.17,
                           icu_rate=.2,
@@ -15,6 +15,8 @@ def icu_burden_projection(incubation_period=5,
     # convert values for model
     incubation_period = (1 / incubation_period)
     infectious_period = (1 / infectious_period)
+    
+    avg_contact_rate = infectious_period * reproduction_rate
     
     timeline = range(days)
     
@@ -30,21 +32,27 @@ def icu_burden_projection(incubation_period=5,
     
     for _ in timeline[1:]:
     
-        next_S = S[-1] - (reproduction_rate * S[-1] * I[-1])
+        next_S = S[-1] - (avg_contact_rate * S[-1] * I[-1])
         S.append(next_S)
         
-        next_E = E[-1] + (reproduction_rate * S[-1] * I[-1] - incubation_period * E[-1])
+        next_E = E[-1] + (avg_contact_rate * S[-1] * I[-1] - incubation_period * E[-1])
         E.append(next_E)
         
         next_I = I[-1] + (incubation_period * E[-1] - infectious_period * I[-1])
         I.append(next_I)
     
+        '''
         if next_I > tested_daily:
+            # full testing capacity is used
             round_tested_daily = tested_daily
-        else:
+        elif next_I <= tested_daily:
+            # testing bandwidth remains
             round_tested_daily = next_I
-            
-        tested.append(next_I)
+        tested.append(round_tested_daily)
+        '''
+        
+        round_tested_daily = tested_daily
+        tested.append(round_tested_daily)
         
         round_positive = round_tested_daily * positive_rate
         positive.append(round_positive)
@@ -60,14 +68,18 @@ def icu_burden_projection(incubation_period=5,
         
         next_R = R[-1] + (infectious_period*I[-1])
         R.append(next_R)
-        
-    out = np.stack([S, E, I, hospitalized, icu, ventilation, R]).T     
+    
+    # put together the dataset
+    out = np.stack([I, tested, positive, hospitalized, icu, ventilation, R]).T     
     df = pd.DataFrame(out)
-    df.columns = ['susceptible', 'exposed', 'infected', 'hospitalized', 'icu', 'ventilation', 'removed']
-    
-    df.drop('susceptible', 1, inplace=True)
-    
-    df *= population
+    df.columns = ['infected',
+                  'tested',
+                  'positive',
+                  'hospitalized',
+                  'icu',
+                  'ventilation',
+                  'removed']
+                  
     df = df.astype(int)
-    
+
     return df
