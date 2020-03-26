@@ -1,8 +1,13 @@
 # Ventilation and Pneumonia focused ICU Dataset
 
-The origin dataset is MIMIC-III database [link](https://mimic.physionet.org/). You must cite the below if you use this data.
+This dataset is intended for researchers, decision makers, technology developers, and others whose decisions depend on understanding of ventilation use in an ICU setting, specifically in viral influenza context. The origin dataset is MIMIC-III database [link](https://mimic.physionet.org/). You must cite the below if you use this data.
 
 > MIMIC-III, a freely accessible critical care database. Johnson AEW, Pollard TJ, Shen L, Lehman L, Feng M, Ghassemi M, Moody B, Szolovits P, Celi LA, and Mark RG. Scientific Data (2016). DOI: 10.1038/sdata.2016.35. Available from: http://www.nature.com/articles/sdata201635
+
+## Description
+
+- population nnnnn
+- sample size nnnnn
 
 ## Data Taxonomy
 
