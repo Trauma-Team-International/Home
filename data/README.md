@@ -9,7 +9,7 @@ This dataset is intended for researchers, decision makers, technology developers
 - BASE: **61,532** ICU stays (may be more than one per patient)
 - SAMPLE SIZE: **5,890** patients with pneumonia diagnosis
 - RECORD/ROW: each row represents a single hospital admission with associated ICU stays as a single item
-- FEATURES/COLUMNS: features contain patient meta-data, survival outcomes, pneumonia specific meta-data, ventilation durations, and various blood serum values
+- FEATURES/COLUMNS: features contain patient meta-data, survival outcomes, pneumonia specific meta-data, ventilation durations, and various blood serum values, including those that are highlighted in COVID-19 literature
 
 ## Data Taxonomy
 
