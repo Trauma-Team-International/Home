@@ -24,7 +24,7 @@ The dataset consist of hospital admissions that led to an ICU stay. There are re
 
 The dataset is sampled from MIMIC, which *"is an openly available dataset developed by the MIT Lab for Computational Physiology, comprising deidentified health data associated with ~60,000 intensive care unit admissions. It includes demographics, vital signs, laboratory tests, medications, and more."* 
 
-## Description
+## :nut_and_bolt: Description
 
 - BASE: **61,532** ICU stays (may be more than one per patient)
 - SAMPLE SIZE: **5,890** patients with pneumonia diagnosis
@@ -33,7 +33,7 @@ The dataset is sampled from MIMIC, which *"is an openly available dataset develo
 
 NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the ICU stays for the patient on a single hospital admission, and `hours_before_ventilation` is the time between hospital admission and first instance of ventilation.
 
-## Data Taxonomy
+## :open_file_folder: Data Taxonomy
 
 <details>
   <summary>Display full data taxonomy</summary>
@@ -141,6 +141,14 @@ name | description | type
 The data taxonomy is available in [Google Sheet](https://docs.google.com/spreadsheets/d/1Pqyb_eMfog4NOH-Nst54ebzikquSxxi2JfmkyxCqbBE/edit?usp=sharing) and [csv](https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/TTI_ICU_Burden_Dataset_Taxonomy.csv). Alternatively, download to local machine:
 
 `wget https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/TTI_ICU_Burden_Dataset_Taxonomy.csv`
+
+## :inbox_tray: Download
+
+You can download the dataset [here](https://github.com/autonomio/trauma-team-international/raw/master/data/icu_dataset.csv) or from command line: 
+
+```
+wget https://github.com/autonomio/trauma-team-international/raw/master/data/icu_dataset.csv
+```
 
 ## Privacy Notice
 
