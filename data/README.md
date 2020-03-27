@@ -31,7 +31,8 @@ The dataset is sampled from MIMIC, which *"is an openly available dataset develo
 - RECORD/ROW: each row represents a single hospital admission and in case the admission involves more than one ICU stay, the last ICU stay*
 - FEATURES/COLUMNS: features contain patient meta-data, survival outcomes, pneumonia specific meta-data, ventilation durations, and various blood serum values, including those that are highlighted in COVID-19 literature
 
-NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the ICU stays for the patient on a single hospital admission, and `hours_before_ventilation` is the time between hospital admission and first instance of ventilation.
+NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the ICU stays for the patient on a single hospital admission, and `hours_before_ventilation` is the time between hospital admission and first instance of ventilation. The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
+
 
 ## :open_file_folder: Data Taxonomy
 
@@ -149,10 +150,6 @@ You can download the dataset [here](https://github.com/autonomio/trauma-team-int
 ```
 wget https://github.com/autonomio/trauma-team-international/raw/master/data/icu_dataset.csv
 ```
-
-## Privacy Notice
-
-The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
 
 ### 💬 How to get help
 
