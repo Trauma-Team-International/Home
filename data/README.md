@@ -35,6 +35,9 @@ NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the
 
 ## Data Taxonomy
 
+<details>
+  <summary>Display data taxonomy</summary>
+  
 name | description | type
 --- | --- | ---
 **id** | Masked identifier for last icu stay for a patient over all admissions | (String) 
@@ -132,6 +135,8 @@ name | description | type
 **PLATELET_SMEAR_max** | first day PLATELET_SMEAR_max, | (Numeric or Missing)
 **RETICULOCYTE_min** | first day RETICULOCYTE_min, | (Numeric or Missing)
 **RETICULOCYTE_max** | first day RETICULOCYTE_max | (Numeric or Missing)
+
+</details>
 
 ## Support
 
