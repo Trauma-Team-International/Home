@@ -2,6 +2,8 @@
 
 A detailed overview of the dataset is provided below. The attempt has been to make the dataset as accessible as possible, and as relevant to coronavirus as possible. No such dataset have been previously available.
 
+<img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
+
 ## Dataset Themes
 
 - ICU
