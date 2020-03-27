@@ -1,8 +1,10 @@
-# Ventilation and Pneumonia focused ICU Dataset
+# COVID-19 ICU Burden: what can we learn from available ICU data?
 
-A detailed overview of the dataset is provided below. The attempt has been to make the dataset as accessible as possible, and as relevant to coronavirus as possible. No such dataset have been previously available.
+The dataset have been made to be as highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provide [below](#overview).
 
 <img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
+
+An attempt has been to provide the dataset in a format as accessible and clearly document as possible. 
 
 ## Dataset Themes
 
