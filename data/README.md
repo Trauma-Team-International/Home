@@ -16,7 +16,7 @@ Anyone whose decisions related with COVID-19 depend on understanding ICU mortali
 
 ## Overview
 
-The dataset consist of hospital admissions that led to an ICU stay. Consisting of over 5,000 ICU stays where a pneumonia diagnosis is present, the dataset provides ~100 features on ventilation use, pneumonia characteristics, viral influenza, and acute respiratory distress syndrome (ARDS).
+The dataset consist of hospital admissions that led to an ICU stay. There are records for over 5,000 ICU stays where a pneumonia diagnosis is present. The dataset provides ~100 features on ventilation use, pneumonia characteristics, viral influenza, and acute respiratory distress syndrome (ARDS). There are a large number of blood serum markers available, including all known COVID-19 specific markers that were available.
 
 The dataset is sampled from MIMIC, which *"is an openly available dataset developed by the MIT Lab for Computational Physiology, comprising deidentified health data associated with ~60,000 intensive care unit admissions. It includes demographics, vital signs, laboratory tests, medications, and more."* 
 
