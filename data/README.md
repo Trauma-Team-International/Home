@@ -14,34 +14,11 @@ A detailed overview of the dataset is provided below. The attempt has been to ma
 
 Anyone whose decisions related with COVID-19 depend on understanding ICU mortality, ventilation use, and ARDS in pneumonia patients.
 
-This dataset is intended for researchers, decision makers, technology developers, and others whose decisions depend on understanding of 
-
 ## Overview
 
 The dataset consist of hospital admissions that led to an ICU stay. Consisting of over 5,000 ICU stays where a pneumonia diagnosis is present, the dataset provides ~100 features on ventilation use, pneumonia characteristics, viral influenza, and acute respiratory distress syndrome (ARDS).
 
 The dataset is sampled from MIMIC, which *"is an openly available dataset developed by the MIT Lab for Computational Physiology, comprising deidentified health data associated with ~60,000 intensive care unit admissions. It includes demographics, vital signs, laboratory tests, medications, and more."* 
-
-## Citations
-
-The origin dataset is MIMIC-III database [link](https://mimic.physionet.org/). You must cite the below if you use this data.
-
-> MIMIC-III, a freely accessible critical care database. Johnson AEW, Pollard TJ, Shen L, Lehman L, Feng M, Ghassemi M, Moody B, Szolovits P, Celi LA, and Mark RG. Scientific Data (2016). DOI: 10.1038/sdata.2016.35. Available from: http://www.nature.com/articles/sdata201635
-
-
-
-
-## Privacy Notice
-
-The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
-
-
-
-
-
-
-## Priv
-
 
 ## Description
 
@@ -152,3 +129,14 @@ name | description | type
 **RETICULOCYTE_min** | first day RETICULOCYTE_min, | (Numeric or Missing)
 **RETICULOCYTE_max** | first day RETICULOCYTE_max | (Numeric or Missing)
 
+## Support
+
+## Citations
+
+The origin dataset is MIMIC-III database [link](https://mimic.physionet.org/). You must cite the below if you use this data.
+
+> MIMIC-III, a freely accessible critical care database. Johnson AEW, Pollard TJ, Shen L, Lehman L, Feng M, Ghassemi M, Moody B, Szolovits P, Celi LA, and Mark RG. Scientific Data (2016). DOI: 10.1038/sdata.2016.35. Available from: http://www.nature.com/articles/sdata201635
+
+## Privacy Notice
+
+The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
