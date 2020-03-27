@@ -168,7 +168,7 @@ The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup ta
 
 If you use Trauma Team International's research, data, or findings for published work, please cite:
 
-`Autonomio. (2019). Retrieved from http://github.com/trauma-team-international/talos.`
+`Autonomio, Trauma Team International. (2020). Retrieved from http://github.com/autonomio/trauma-team-international/.`
 
 You must separately cite MIMIC:
 
