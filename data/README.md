@@ -6,7 +6,7 @@ The dataset have been made to be as highly relevant to COVID-19 related ICU capa
 
 An attempt has been to provide the dataset in a format as accessible and clearly document as possible. 
 
-## Dataset Themes
+## :pushpin: Dataset Themes
 
 - ICU
 - pneumonia patients
@@ -14,11 +14,11 @@ An attempt has been to provide the dataset in a format as accessible and clearly
 - ventilation
 - viral influenza
 
-## Intended Audience
+## :tv: Intended Audience
 
 Anyone whose decisions related with COVID-19 depend on understanding ICU mortality, ventilation use, and ARDS in pneumonia patients.
 
-## Overview
+## :information_source: Overview
 
 The dataset consist of hospital admissions that led to an ICU stay. There are records for over 5,000 ICU stays where a pneumonia diagnosis is present. The dataset provides ~100 features on ventilation use, pneumonia characteristics, viral influenza, and acute respiratory distress syndrome (ARDS). There are a large number of blood serum markers available, including all known COVID-19 specific markers that were available.
 
@@ -36,7 +36,7 @@ NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the
 ## Data Taxonomy
 
 <details>
-  <summary>Display data taxonomy</summary>
+  <summary>Display full data taxonomy</summary>
   
 name | description | type
 --- | --- | ---
@@ -138,14 +138,40 @@ name | description | type
 
 </details>
 
-## Support
+The data taxonomy is available in [Google Sheet](https://docs.google.com/spreadsheets/d/1Pqyb_eMfog4NOH-Nst54ebzikquSxxi2JfmkyxCqbBE/edit?usp=sharing) and [csv](https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/TTI_ICU_Burden_Dataset_Taxonomy.csv). Alternatively, download to local machine:
 
-## Citations
-
-The origin dataset is MIMIC-III database [link](https://mimic.physionet.org/). You must cite the below if you use this data.
-
-> MIMIC-III, a freely accessible critical care database. Johnson AEW, Pollard TJ, Shen L, Lehman L, Feng M, Ghassemi M, Moody B, Szolovits P, Celi LA, and Mark RG. Scientific Data (2016). DOI: 10.1038/sdata.2016.35. Available from: http://www.nature.com/articles/sdata201635
+`wget https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/TTI_ICU_Burden_Dataset_Taxonomy.csv`
 
 ## Privacy Notice
 
 The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
+
+### 💬 How to get help
+
+| I want to...                     | Go to...                                                  |
+| -------------------------------- | ---------------------------------------------------------- |
+| **...connect with others**      | [Discord]                                            |
+| **...read the wiki**           | [Wiki]                                  |
+| **...suggest something**  | [GitHub Issue Tracker]                                     |
+
+<hr>
+
+### 📢 Citations
+
+If you use Trauma Team International's research, data, or findings for published work, please cite:
+
+`Autonomio. (2019). Retrieved from http://github.com/trauma-team-international/talos.`
+
+You must separately cite MIMIC:
+
+> MIMIC-III, a freely accessible critical care database. Johnson AEW, Pollard TJ, Shen L, Lehman L, Feng M, Ghassemi M, Moody B, Szolovits P, Celi LA, and Mark RG. Scientific Data (2016). DOI: 10.1038/sdata.2016.35. Available from: http://www.nature.com/articles/sdata201635
+
+<hr>
+
+### 📃 License
+
+[MIT License](https://github.com/autonomio/talos/blob/master/LICENSE)
+
+[github issue tracker]: https://github.com/automio/trauma-team-international/issues
+[wiki]: https://github.com/autonomio/talos/wiki
+[discord]: https://discord.gg/t7vk27
