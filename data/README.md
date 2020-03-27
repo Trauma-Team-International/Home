@@ -1,10 +1,10 @@
 # COVID-19 ICU Burden: what can we learn from available ICU data?
 
-The dataset have been made to be as highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provide [below](#overview).
+The dataset have been made to be as highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provided [below](#overview).
 
 <img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
 
-An attempt has been to provide the dataset in a format as accessible and clearly document as possible. 
+The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly document as possible, without compromising the integrity of its origin (MIMIC). 
 
 ## :pushpin: Dataset Themes
 
