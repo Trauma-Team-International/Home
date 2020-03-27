@@ -1,10 +1,10 @@
 # COVID-19 ICU Burden: what can we learn from available ICU data?
 
-The dataset have been made to be highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provided [below](#overview).
+The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
 <img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
 
-The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly document as possible, without compromising the integrity of its origin (MIMIC). 
+The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly documented as possible, without compromising the integrity of its origin (MIMIC). 
 
 ## :pushpin: Dataset Themes
 
@@ -32,7 +32,6 @@ The dataset is sampled from MIMIC, which *"is an openly available dataset develo
 - FEATURES/COLUMNS: features contain patient meta-data, survival outcomes, pneumonia specific meta-data, ventilation durations, and various blood serum values, including those that are highlighted in COVID-19 literature
 
 NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the ICU stays for the patient on a single hospital admission, and `hours_before_ventilation` is the time between hospital admission and first instance of ventilation. The hospital admission id (`hadm_id`) used in MIMIC is obfuscated, but lookup table can be provided for those that verify their right to access MIMIC. 
-
 
 ## :open_file_folder: Data Taxonomy
 
