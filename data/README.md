@@ -1,6 +1,6 @@
 # COVID-19 ICU Burden: what can we learn from available ICU data?
 
-The dataset have been made to be as highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provided [below](#overview).
+The dataset have been made to be highly relevant to COVID-19 related ICU capacity problem that currently threatens healthcare systems all over the world. Full description of the dataset is provided [below](#overview).
 
 <img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
 
