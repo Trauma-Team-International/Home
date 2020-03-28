@@ -4,6 +4,16 @@
 
 The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
+- [Dataset Themes](#dataset-themes)
+- [Intended Audience](#intended-audience)
+- [Overview](#overview)
+- [Description](#description)
+- [Data Taxonomy](#data-taxonomy)
+- [Download](#download)
+- [Support](#support)
+- [Citations](#citations)
+- [License](#license)
+
 The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly documented as possible, without compromising the integrity of its origin (MIMIC). 
 
 ## :pushpin: Dataset Themes
