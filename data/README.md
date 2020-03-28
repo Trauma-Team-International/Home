@@ -1,6 +1,6 @@
 <img width="100%" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU_burden_dataset_infosheet.jpg">
 
-# COVID-19 ICU Burden: what can we learn from available ICU data?
+## COVID-19 ICU Burden: what can we learn from available ICU data?
 
 The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
