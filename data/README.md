@@ -4,7 +4,7 @@
 
 The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
-- [Dataset Themes](#dataset-themes)
+- [Dataset Themes](#pushpin-dataset-themes)
 - [Intended Audience](#intended-audience)
 - [Overview](#overview)
 - [Description](#description)
