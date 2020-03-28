@@ -25,25 +25,6 @@ def k2_k3(arg, dt):
 def calculate_next_step(k1, k2, k3, k4):
     return (1.0 / 6.0)*(k1 + 2 * k2 + 2 * k3 + k4)
 
-
-def euler_seir_model(init_values, beta, gamma, sigma, mu, nu, t, n):
-    S_0, E_0, I_0, R_0 = init_values
-    S, E, I, R = [S_0], [E_0], [I_0], [R_0]
-    dt = t[1] - t[0]
-    for _ in t[1:]:
-
-        next_S = S[-1] + dt * dsdt(beta, mu, nu, n, S[-1], I[-1])
-        next_E = E[-1] + dt * dedt(beta, sigma, mu, n, S[-1], I[-1], E[-1])
-        next_I = I[-1] + dt * didt(sigma, gamma, mu, I[-1], E[-1])
-        next_R = R[-1] + dt * drdt(gamma, mu, nu, S[-1], I[-1], R[-1])
-
-        S.append(next_S)
-        E.append(next_E)
-        I.append(next_I)
-        R.append(next_R)
-    return np.stack([S, E, I, R]).T
-
-
 def runge_seir_model(init_values, beta, gamma, sigma, mu, nu, t, n):
     S_0, E_0, I_0, R_0 = init_values
     S, E, I, R = [S_0], [E_0], [I_0], [R_0]
