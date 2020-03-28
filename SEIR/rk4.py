@@ -126,13 +126,6 @@ nu = 0
 # Run simulation
 runge_results = runge_seir_model(
     init_values, beta, gamma, sigma, mu, nu, t, N)
-euler_results = euler_seir_model(init_values, beta, gamma, sigma, mu, nu, t, N)
-
-# Plot results
-plt.figure(figsize=(12, 8))
-plt.plot(euler_results)
-plt.legend(['Susceptible', 'Exposed', 'Infected', 'Recovered'])
-plt.xlabel('Time Steps')
 
 plt.figure(figsize=(12, 8))
 plt.plot(runge_results)
