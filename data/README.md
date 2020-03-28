@@ -10,9 +10,9 @@ The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity p
 - [Description](#nut_and_bolt-description)
 - [Data Taxonomy](#open_file_folder-data-taxonomy)
 - [Download](#inbox_tray-download)
-- [Support](#💬-support)
-- [Citations](#citations)
-- [License](#license)
+- [Support](#speech_balloon-support)
+- [Citations](#loudspeaker-citations)
+- [License](#page_with_curl-license)
 
 The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly documented as possible, without compromising the integrity of its origin (MIMIC). 
 
