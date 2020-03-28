@@ -10,7 +10,7 @@ The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity p
 - [Description](#nut_and_bolt-description)
 - [Data Taxonomy](#open_file_folder-data-taxonomy)
 - [Download](#inbox_tray-download)
-- [Support](#support)
+- [Support](#💬-support)
 - [Citations](#citations)
 - [License](#license)
 
