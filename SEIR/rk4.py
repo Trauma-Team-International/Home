@@ -25,6 +25,7 @@ def k2_k3(arg, dt):
 def calculate_next_step(k1, k2, k3, k4):
     return (1.0 / 6.0)*(k1 + 2 * k2 + 2 * k3 + k4)
 
+
 def runge_seir_model(init_values, beta, gamma, sigma, mu, nu, t, n):
     S_0, E_0, I_0, R_0 = init_values
     S, E, I, R = [S_0], [E_0], [I_0], [R_0]
