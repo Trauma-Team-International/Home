@@ -144,10 +144,10 @@ The data taxonomy is also available in [Google Sheet](https://docs.google.com/sp
 
 ## :inbox_tray: Download
 
-You can download the dataset [here](https://github.com/autonomio/trauma-team-international/raw/master/data/icu_dataset.csv) or from command line: 
+You can download the dataset [here](https://github.com/autonomio/trauma-team-international/raw/master/data/icu_burden_dataset.csv) or from command line: 
 
 ```
-wget https://github.com/autonomio/trauma-team-international/raw/master/data/icu_dataset.csv
+wget https://github.com/autonomio/trauma-team-international/raw/master/data/icu_burden_dataset.csv
 ```
 
 ### 💬 How to get help
