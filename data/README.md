@@ -2,7 +2,7 @@
 
 ## COVID-19 ICU Burden: what can we learn from available ICU data?
 
-The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
+The dataset is aimed to be highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
 - [Dataset Themes](#pushpin-dataset-themes)
 - [Intended Audience](#tv-intended-audience)
