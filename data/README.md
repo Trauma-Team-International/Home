@@ -1,8 +1,8 @@
+<img width="100%" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU_burden_dataset_infosheet.jpg">
+
 # COVID-19 ICU Burden: what can we learn from available ICU data?
 
 The dataset is aimed to be as highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
-
-<img width="300px" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU.png">
 
 The underlying dataset from which a sample have been drawn, [MIMIC](https://mimic.physionet.org/), is used in a large number of ICU related scientific works and provides unparalleled confidence for the reseachers that work with it. An attempt has been made to provide the current dataset in a format as accessible and clearly documented as possible, without compromising the integrity of its origin (MIMIC). 
 
