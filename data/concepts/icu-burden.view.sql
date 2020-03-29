@@ -19,7 +19,6 @@
 --    hours_before_ventilation,
 --    diagnosed_ards,
 --    labsfirstday concept...
---    firstdaycovidmarkers concept...
 --    total
 -- )
 DROP MATERIALIZED VIEW IF EXISTS icu_burden CASCADE;
@@ -121,52 +120,6 @@ SELECT
   lfd.wbc_min,
   lfd.wbc_max,
   
-  -- firstdaycovidmarkers concept
-  covid.carboxyhemoglobin_min,
-  covid.carboxyhemoglobin_max,
-  covid.methemoglobin_min,
-  covid.methemoglobin_max,
-  covid.percentage_hemoglobin_a1c_min,
-  covid.percentage_hemoglobin_a1c_max,
-  covid.absolute_hemoglobin_min,
-  covid.absolute_hemoglobin_max,
-  covid.alanine_aminotransferase_min,
-  covid.alanine_aminotransferase_max,
-  covid.asparate_aminotransferase_min,
-  covid.asparate_aminotransferase_max,
-  covid.c_reactive_protein_min,
-  covid.c_reactive_protein_max,
-  covid.d_dimer_min,
-  covid.d_dimer_max,
-  covid.absolute_lymphocyte_min,
-  covid.absolute_lymphocyte_max,
-  covid.atypical_lymphocytes_min,
-  covid.atypical_lymphocytes_max,
-  covid.fetal_hemoglobin_min,
-  covid.fetal_hemoglobin_max,
-  covid.fibrinogen_min,
-  covid.fibrinogen_max,
-  covid.hemoglobin_a2_min,
-  covid.hemoglobin_a2_max,
-  covid.hemoglobin_c_min,
-  covid.hemoglobin_c_max,
-  covid.hemoglobin_f_min,
-  covid.hemoglobin_f_max,
-  covid.large_platelets_min,
-  covid.large_platelets_max,
-  covid.leukocyte_alkaline_phosphatase_min,
-  covid.leukocyte_alkaline_phosphatase_max,
-  covid.lymphocytes_min,
-  covid.lymphocytes_max,
-  covid.lymphocytes_percent_min,
-  covid.lymphocytes_percent_max,
-  covid.platelet_clumps_min,
-  covid.platelet_clumps_max,
-  covid.platelet_smear_min,
-  covid.platelet_smear_max,
-  covid.reticulocyte_min,
-  covid.reticulocyte_max,
-
   -- group by icustay_id count
   1 as total
 FROM
@@ -177,7 +130,6 @@ FROM
   LEFT JOIN patient_survival ps ON icu.hadm_id=ps.hadm_id
   LEFT JOIN diag_ards ards ON icu.hadm_id=ards.hadm_id
   LEFT JOIN labsfirstday lfd ON icu.icustay_id=lfd.icustay_id
-  LEFT JOIN firstdaycovidmarkers covid ON icu.icustay_id=covid.icustay_id
 WHERE
   (pn.pneumonia_influenza_source IS NOT NULL
   OR
