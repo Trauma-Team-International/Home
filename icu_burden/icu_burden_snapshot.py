@@ -4,7 +4,7 @@ def icu_burden_snapshot(days=30,
                         case_fatality_rate=.4,
                         capacity=200,
                         summaries=True):
-
+  
     import numpy as np
     import pandas as pd
     
