@@ -1,12 +1,13 @@
+import pandas as pd
+
 def icu_burden_snapshot(days=30,
                         day_total_cases=50,
                         doubles_in_days=6,
                         case_fatality_rate=.4,
                         capacity=200,
                         summaries=True):
-  
+
     import numpy as np
-    import pandas as pd
     
     total_cases = []
 
@@ -46,12 +47,11 @@ def icu_burden_snapshot(days=30,
     df['capacity'] = capacity
     
     if summaries:
-        return df.astype(int).max().tolist()
+        return df.max().tolist()
     
     else:
-        return df.astype(int)
-
- 
+        return df
+    
 def create_combinations(params):
     
     '''Takes as input the input arguments from simulate() and 
@@ -73,10 +73,11 @@ def create_combinations(params):
     return combinations
     
 
-def simulate(params, randomize=False, limit=None):
+def simulate(params, randomize=False):
     
 
     from tqdm import tqdm
+    import numpy as np
     
     combinations = create_combinations(params)
 
@@ -85,7 +86,7 @@ def simulate(params, randomize=False, limit=None):
     
     out = []
     
-    for combination in tqdm(combinations[:None]):
+    for combination in tqdm(combinations):
         
         out.append(icu_burden_snapshot(capacity=combination[0],
                                        doubles_in_days=combination[1],
@@ -93,7 +94,7 @@ def simulate(params, randomize=False, limit=None):
         
     df = pd.DataFrame(out)
     df.columns = ['cases', 'admissions', 'expired_cfr',
-                   'recovered', 'expired_capacity',
-                   'doubles_in_days', 'case_fatality_rate', 'capacity']
+                  'recovered', 'expired_capacity',
+                  'doubles_in_days', 'case_fatality_rate', 'capacity']
     
     return df
