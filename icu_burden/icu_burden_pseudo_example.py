@@ -1,3 +1,5 @@
+# DO NOT USE THIS CODE!!!
+
 def icu_burden_projection(incubation_period=5,
                           reproduction_rate=2.1,
                           infectious_period=7,
@@ -82,4 +84,4 @@ def icu_burden_projection(incubation_period=5,
                   
     df = df.astype(int)
 
-    return df
+    return "DO NOT USE THIS CODE"
