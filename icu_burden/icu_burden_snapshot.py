@@ -77,7 +77,7 @@ def create_combinations(params):
     return combinations
     
 
-def simulate(params, randomize=False):
+def simulate(params, days=20, cases=50, randomize=False):
     
     
     '''Accepts as input a set of parameters, and 
@@ -85,11 +85,14 @@ def simulate(params, randomize=False):
     parameter combination. The only thing that is 
     simulated in an event-based manner, is total
     cases, and then everything else is inferred 
-    from there onwards.
+    from there onwards. 
     
     params | dict or list | either parameter ranges or
                             list of parameter combinations
+    days | int | number of days to simulate
+    cases | int | number of cases to start with
     randomize | bool | randomize order if True (for debugging)
+    
     
     Example: 
     
@@ -118,8 +121,10 @@ def simulate(params, randomize=False):
         
         out.append(icu_burden_snapshot(capacity=combination[0],
                                        doubles_in_days=combination[1],
-                                       case_fatality_rate=combination[2]))
-        
+                                       case_fatality_rate=combination[2],
+                                       days=days,
+                                       day_total_cases=cases))
+
     df = pd.DataFrame(out)
     df.columns = ['cases', 'admissions', 'expired_cfr',
                   'recovered', 'expired_capacity',
