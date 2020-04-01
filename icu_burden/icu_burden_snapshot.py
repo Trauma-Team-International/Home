@@ -33,9 +33,9 @@ def icu_burden_snapshot(days=30,
     
     df = pd.DataFrame()
     
-    random_effect = np.round(np.random.normal(0, .2, days), 2)
+    random_effect = np.round(np.random.normal(0, .1, days), 3)
     
-    df['cases'] = np.array(total_cases) * random_effect
+    df['cases'] = np.array(total_cases) * (1 + random_effect)
     
     admissions = lambda x: x if capacity >= x else capacity
     df['admissions'] = df['cases'].apply(admissions).astype(int)
