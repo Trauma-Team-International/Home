@@ -13,3 +13,10 @@ params = {'capacity': [100, 1000, 1],
 # store simulation result dataframe
 results = simulate(params)
 ```
+
+#### TODO
+
+- [ ] add tiny randomness into inferred values
+- [ ] add quantile visualization option
+- [ ] refactor the code
+- [ ] structure as self-contained module
