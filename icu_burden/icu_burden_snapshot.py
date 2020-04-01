@@ -7,6 +7,10 @@ def icu_burden_snapshot(days=30,
                         capacity=200,
                         summaries=True):
 
+    '''Does the work for simulate() by taking as input
+    parameters, and then returning either summaries with
+    peak values, or a dataframe with raw data (daily).'''
+    
     import numpy as np
     
     total_cases = []
@@ -75,11 +79,35 @@ def create_combinations(params):
 
 def simulate(params, randomize=False):
     
+    
+    '''Accepts as input a set of parameters, and 
+    returns a dataframe with peak values for each
+    parameter combination. The only thing that is 
+    simulated in an event-based manner, is total
+    cases, and then everything else is inferred 
+    from there onwards.
+    
+    params | dict or list | either parameter ranges or
+                            list of parameter combinations
+    randomize | bool | randomize order if True (for debugging)
+    
+    Example: 
+    
+    params = {'capacity': [250, 1000, 50],
+              'doubles_in_days': [4, 8, 1],
+              'case_fatality_rate': [0.30, 0.5, 0.01]}
+
+    results = simulate(params)
+
+    '''
 
     from tqdm import tqdm
     import numpy as np
     
-    combinations = create_combinations(params)
+    if isinstance(params, dict):
+        combinations = create_combinations(params)
+    else:
+        combinations = params
 
     if randomize:
         np.random.shuffle(combinations)
@@ -96,5 +124,9 @@ def simulate(params, randomize=False):
     df.columns = ['cases', 'admissions', 'expired_cfr',
                   'recovered', 'expired_capacity',
                   'doubles_in_days', 'case_fatality_rate', 'capacity']
+
+    _temp_ = df.case_fatality_rate.values
+    df = df.astype(int)
+    df['case_fatality_rate'] = _temp_
     
     return df
