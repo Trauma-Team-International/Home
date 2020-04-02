@@ -36,6 +36,8 @@ The dataset is sampled from MIMIC, which *"is an openly available dataset develo
 
 ## :nut_and_bolt: Description
 
+<img width="100%" src="https://raw.githubusercontent.com/autonomio/trauma-team-international/master/assets/ICU_burden_dataset_infosheet_2.jpg">
+
 - BASE: **61,532** ICU stays (may be more than one per patient)
 - SAMPLE SIZE: **5,890** patients with pneumonia diagnosis
 - RECORD/ROW: each row represents a single hospital admission and in case the admission involves more than one ICU stay, the last ICU stay*
