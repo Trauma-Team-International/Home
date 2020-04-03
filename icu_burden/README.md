@@ -24,11 +24,11 @@ results = simulate(params)
 
 ## Robust Event-Based Method
 
-DATA SOURCE: generated based on input parameters
-FOCUS: to evaluate outcomes of every possible parameter combination
-PARAMETERS: `capacity`, `doubles_in_days`, and `case_fatality_rate`
+- **DATA SOURCE:** generated based on input parameters
+- **FOCUS:** to evaluate outcomes of every possible parameter combination
+- **PARAMETERS:** `starting_patient_count`, `standard_icu_capacity`, `ventilated_icu_capacity`, `standard_icu_fatality_rate`, `ventilated_icu_fatality_rate`, `standard_icu_stay_duration`, and `ventilated_icu_stay_duration`
 
-Provides a simple interface with industrial event-based simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
+Provides a simple interface to an event-based simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
 
 The logic is based on the following rules:
 
@@ -46,9 +46,9 @@ First get the [code](https://github.com/autonomio/trauma-team-international/blob
 
 ## Bayesian Method
 
-DATA SOURCE: daily country-level case or death numbers
-FOCUS: to evaluate the strength of historical trend as a proxy for forecasting the future
-PARAMETERS: NA
+**DATA SOURCE:** daily country-level case or death numbers
+**FOCUS:** to evaluate the strength of historical trend as a proxy for forecasting the future
+**PARAMETERS:** NA
 
 GLM pipeline for using Bayesian method for linear regression, where the historical trend is used to predict future events.
 
@@ -56,9 +56,9 @@ Get the [code](https://github.com/autonomio/trauma-team-international/blob/maste
 
 ## Moving Average Method
 
-DATA SOURCE: daily country-level case or death numbers
-FOCUS: to evaluate how precise the most simplistic available method is in forecasting the future
-PARAMETERS: NA
+**DATA SOURCE:** daily country-level case or death numbers
+**FOCUS:** to evaluate how precise the most simplistic available method is in forecasting the future
+**PARAMETERS:** NA
 
 A moving average based baseline method, where historical trend is used to predict future events across all countries with COVID-19 cases. Provides as output mean-average-error and relative-median-error for each country.
 
