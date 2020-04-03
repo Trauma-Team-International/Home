@@ -32,9 +32,12 @@ First get the [code](https://github.com/autonomio/trauma-team-international/blob
 
 ## Bayesian Method
 
-First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py) on to your machine, and then run it.
+GLM pipeline for using Bayesian method for linear regression, where the historical trend is used to predict future events.
+
+Get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py) on to your machine, and run it.
 
 ## Moving Average Method
 
+A moving average based baseline method, where historical trend is used to predict future events across all countries with COVID-19 cases. Provides as output mean-average-error and relative-median-error for each country.
 
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_average.py) on to your machine, and then run it.
