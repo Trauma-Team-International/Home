@@ -16,7 +16,9 @@ results = simulate(params)
 
 ## Robust Event-Based Method
 
-Provides a simple interface with industrial event-based simulator based on the below logic.
+Provides a simple interface with industrial event-based simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
+
+The logic is based on the following rules:
 
 - there is a certain number of patients at start day_total_cases
 - each day there are more new patients based on doubles_in_days
