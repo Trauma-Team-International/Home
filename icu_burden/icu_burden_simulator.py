@@ -25,7 +25,7 @@ HOSPITAL_CAPACITY = 100  # Capacity of hospital per icu_type
 SIMULATE_TIME = 20*HOURS_IN_DAY  # Simulate until
 DAILY_GROWTH_RATE = 0.178
 DAILY_VENTILATED_ICU_DIE_RATE = 0.1
-DAILY_DIE_VENTILATED_ICU_REJECTED_RATE = 0.1
+DAILY_DIE_VENTILATED_ICU_REFUSED_RATE = 0.1
 STANDARD_ICU_MEAN_DURATION_PERIOD = 5*HOURS_IN_DAY
 VENTILATED_ICU_MEAN_DURATION_PERIOD = 5*HOURS_IN_DAY
 
@@ -64,7 +64,7 @@ def hospital_manager(env, icu_type, hospital, hours_in_day):
 
 def update_icu_departments(
         env, hospital, standard_icu_mean_duration,
-        ventilated_icu_mean_duration, daily_ventilated_icu_die_rate, hours_in_day):
+        ventilated_icu_mean_duration, daily_ventilated_icu_die_rate, daily_die_ventilated_icu_refused_rate, hours_in_day):
     """Update statistic every 24 hours"""
 
     nearest_hour = round(env.now)
@@ -75,12 +75,12 @@ def update_icu_departments(
         # update ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
             ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list']
-        count_died_people = round(
+        total_died_ventilated_icu = round(
             len(ventilated_icu_list)*daily_ventilated_icu_die_rate)
         ventilated_icu_length = len(ventilated_icu_list)
         hospital.departments_capacity[
             ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list'] = random.sample(ventilated_icu_list,
-                                                                                     ventilated_icu_length - count_died_people)
+                                                                                     ventilated_icu_length - total_died_ventilated_icu)
 
         # release standard icu
         standard_icu_list = hospital.departments_capacity[
@@ -101,11 +101,13 @@ def update_icu_departments(
             len(ventilated_icu_list)
 
         # update statistic
+        total_died_refused_ventiled_icu = hospital.daily_accepted_total[
+            ICU_Types.VENTILATED_ICU.name]*daily_die_ventilated_icu_refused_rate
         hospital.statistic.update({day_number: {
             'total_demand': {icu_type: (hospital.daily_refused_total[icu_type] + hospital.daily_accepted_total[icu_type]) for icu_type in hospital.departments},
             'total_released': {ICU_Types.STANDARD_ICU.name: standard_icu_released_count, ICU_Types.VENTILATED_ICU.name: ventilated_icu_released_count},
             'total_refused': {icu_type: hospital.daily_refused_total[icu_type] for icu_type in hospital.departments},
-            'total_died': {ICU_Types.STANDARD_ICU.name: 0, ICU_Types.VENTILATED_ICU.name: count_died_people},
+            'total_died': {ICU_Types.STANDARD_ICU.name: 0, ICU_Types.VENTILATED_ICU.name: total_died_ventilated_icu+total_died_refused_ventiled_icu},
         }})
 
         # cleanup count for next the day
@@ -128,7 +130,7 @@ def patients_arrivals(env, hospital):
         env.process(update_icu_departments(
             env, hospital,
             STANDARD_ICU_MEAN_DURATION_PERIOD, VENTILATED_ICU_MEAN_DURATION_PERIOD,
-            DAILY_VENTILATED_ICU_DIE_RATE, HOURS_IN_DAY))
+            DAILY_VENTILATED_ICU_DIE_RATE, DAILY_DIE_VENTILATED_ICU_REFUSED_RATE, HOURS_IN_DAY))
 
 
 def is_there_difference_between_max_and_current(departments_capacity):
