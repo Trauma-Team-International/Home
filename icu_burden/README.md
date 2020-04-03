@@ -28,7 +28,7 @@ A high resolution event-based ICU burden simulator. Number of infections can be 
 
 - **DATA SOURCE:** generated based on input parameters
 - **FOCUS:** to evaluate outcomes of every possible parameter combination
-- **PARAMETERS:** `starting_patient_count`, `standard_icu_capacity`, `ventilated_icu_capacity`, `standard_icu_fatality_rate`, `ventilated_icu_fatality_rate`, `standard_icu_stay_duration`, and `ventilated_icu_stay_duration`
+- **PARAMETERS:** see below
 
 parameter | type | description
 --- | --- | ---
