@@ -1,3 +1,7 @@
+# Forecasting ICU Burden and Fatalities Caused by Capacity Issues
+
+Below, several methods are provided for answering the question `how much ICU burden will there be` and `how much fatalities will be caused by excess demand for ICU beds`. These methods are provided to test and challenge outputs provided by opaque models that are based on undisclosed complexity and caveats. Each method provided below have been provided with auditability and absence of complexity in mind. The [Robust Event-Based Simulator](#robust-event-based-method) can be used as a single pipeline with one of the [provided SEIR methods](https://github.com/autonomio/trauma-team-international/tree/master/SEIR) as an input for number of infections.
+
 ## Snapshot Method
 
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_snapshot.py) on to your machine, and then in :
