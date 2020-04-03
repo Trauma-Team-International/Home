@@ -14,14 +14,6 @@ params = {'capacity': [200, 1000, 50],
 results = simulate(params)
 ```
 
-#### TODO
-
-- [ ] add tiny randomness into inferred values
-- [ ] add quantile visualization option
-- [ ] refactor the code
-- [ ] structure as self-contained module
-- [ ] add starting value and number of days as input variables
-
 ## Robust Event-Based Simulator Method
 
 Provides a simple interface with industrial event-based simulator based on the below logic.
