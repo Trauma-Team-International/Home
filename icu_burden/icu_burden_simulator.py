@@ -17,7 +17,7 @@ from enum import Enum
 
 import simpy
 
-PATIENTS_AMOUNT = 300
+PATIENTS_AMOUNT = 120
 HOURS_IN_DAY = 24
 RANDOM_SEED = 42
 STANDARD_ICU_CAPACITY = 100
@@ -102,6 +102,7 @@ def update_icu_departments(
                                         standard_icu_list))
         standard_icu_released_count = standard_icu_before_release_length - \
             len(standard_icu_list)
+        hospital.departments_capacity[ICU_Types.STANDARD_ICU.name]['icu_date_arriving_list'] = standard_icu_list
 
         # release ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
@@ -111,6 +112,7 @@ def update_icu_departments(
                                           ventilated_icu_list))
         ventilated_icu_released_count = ventilated_icu_before_release_length - \
             len(ventilated_icu_list)
+        hospital.departments_capacity[ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list'] = ventilated_icu_list
 
         total_died_refused_ventilated_icu = hospital.daily_refused_total[
             ICU_Types.VENTILATED_ICU.name]
