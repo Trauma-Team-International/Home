@@ -4,6 +4,10 @@ Below, several methods are provided for answering the question `how much ICU bur
 
 ## Snapshot Method
 
+DATA SOURCE: generated based on input parameters
+FOCUS: to evaluate outcomes of every possible parameter combination
+PARAMETERS: `capacity`, `doubles_in_days`, and `case_fatality_rate`
+
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_snapshot.py) on to your machine, and then in :
 
 ```
@@ -19,6 +23,10 @@ results = simulate(params)
 ```
 
 ## Robust Event-Based Method
+
+DATA SOURCE: generated based on input parameters
+FOCUS: to evaluate outcomes of every possible parameter combination
+PARAMETERS: `capacity`, `doubles_in_days`, and `case_fatality_rate`
 
 Provides a simple interface with industrial event-based simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
 
@@ -38,11 +46,19 @@ First get the [code](https://github.com/autonomio/trauma-team-international/blob
 
 ## Bayesian Method
 
+DATA SOURCE: daily country-level case or death numbers
+FOCUS: to evaluate the strength of historical trend as a proxy for forecasting the future
+PARAMETERS: NA
+
 GLM pipeline for using Bayesian method for linear regression, where the historical trend is used to predict future events.
 
 Get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py) on to your machine, and run it.
 
 ## Moving Average Method
+
+DATA SOURCE: daily country-level case or death numbers
+FOCUS: to evaluate how precise the most simplistic available method is in forecasting the future
+PARAMETERS: NA
 
 A moving average based baseline method, where historical trend is used to predict future events across all countries with COVID-19 cases. Provides as output mean-average-error and relative-median-error for each country.
 
