@@ -14,7 +14,7 @@ params = {'capacity': [200, 1000, 50],
 results = simulate(params)
 ```
 
-## Robust Event-Based Simulator Method
+## Robust Event-Based Method
 
 Provides a simple interface with industrial event-based simulator based on the below logic.
 
@@ -30,3 +30,11 @@ Provides a simple interface with industrial event-based simulator based on the b
     
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_simulator.py) on to your machine, and then run it.
 
+## Bayesian Method
+
+First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py) on to your machine, and then run it.
+
+## Moving Average Method
+
+
+First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_average.py) on to your machine, and then run it.
