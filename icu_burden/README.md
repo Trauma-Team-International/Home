@@ -24,11 +24,30 @@ results = simulate(params)
 
 ## Robust Event-Based Method
 
+A high resolution event-based ICU burden simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
+
 - **DATA SOURCE:** generated based on input parameters
 - **FOCUS:** to evaluate outcomes of every possible parameter combination
 - **PARAMETERS:** `starting_patient_count`, `standard_icu_capacity`, `ventilated_icu_capacity`, `standard_icu_fatality_rate`, `ventilated_icu_fatality_rate`, `standard_icu_stay_duration`, and `ventilated_icu_stay_duration`
+a | b | c
+--- | --- | ---
 
-Provides a simple interface to an event-based simulator. Number of infections can be used as an input from SEIR or other similar infectious disease focused model.
+
+days_to_simulate | int | total days to be simulated
+doubles_in_days | int | number of days it takes to double incoming ICU cases
+starting_standard_icu_count | int | the number of initial ICU patients (on day 0 of stay)
+starting_ventilated_icu_count | int | the number of initial ventilated patients (on day 0 of stay)
+standard_icu_capacity | int | total number of available standard ICU beds
+ventilated_icu_capacity | int | total number of available ventilated ICU beds
+standard_icu_fatality_rate | float | percentage (e.g. 0.1 means 10%) of ICU cases that die 
+ventilated_icu_fatality_rate | float | percentage (e.g. 0.1 means 10%) of ventilated cases that die
+standard_icu_stay_duration | float | mean duration of ICU stay in days
+ventilated_icu_stay_duration | float | mean duration of ICU ventilation in days
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
 
 The logic is based on the following rules:
 
