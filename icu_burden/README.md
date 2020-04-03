@@ -35,3 +35,6 @@ Provides a simple interface with industrial event-based simulator based on the b
     - such patients will be added to day_total_cases
 - some patients may not be admittable due to lack of current capacity
     - such patients will die
+    
+First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_simulator.py) on to your machine, and then run it.
+
