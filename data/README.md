@@ -52,7 +52,8 @@ NOTE*:`ventilation_duration_hours` is a sum of ventilation duration from all the
   
 name | description | type
 --- | --- | ---
-**id** | masked identifier for last icu stay for a patient over all admissions | (string) 
+**id** | masked identifier for last icu stay for a patient over all admissions | (string)
+**icu_duration_hours** | hours of stay in ICU | (integer) 
 **age_in_years** | age of patient at the time of admission | (integer) 
 **age_group** | age group of patient | (interger range)
 **pneumonia_influenza_source** | whether diagnosed with pneumonia due to influenza | (boolean)
