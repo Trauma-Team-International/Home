@@ -60,7 +60,7 @@ Capacity specific logic:
 - if capacity not full:
   - patient is admitted
   - patient will have some change to die
-  - every hour it is decided if the person is going to die or not
+  - every hour it is decided if the person is going to die or not*
 
 - if needs ventilation:
   - patient chance to die will change
@@ -68,7 +68,9 @@ Capacity specific logic:
  
 - if capacity is full:
   - patient will immediately die
-    
+
+*The way in which death (and release) are computed, results in normally distributed duration of stay, with separate means for recovered, standard ICU and ventilated ICU.
+
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_simulator.py) on to your machine, and then run it.
 
 ## Bayesian Method
