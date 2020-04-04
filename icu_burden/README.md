@@ -55,6 +55,20 @@ The logic is based on the following rules:
 - some patients may not be admittable due to lack of current capacity
     - such patients will die
     
+Capacity specific logic:
+
+- if capacity not full:
+  - patient is admitted
+  - patient will have some change to die
+  - every hour it is decided if the person is going to die or not
+
+- if needs ventilation:
+  - patient chance to die will change
+  - every hour it is decided if the person is going to die or not*
+ 
+- if capacity is full:
+  - patient will immediately die
+    
 First get the [code](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_simulator.py) on to your machine, and then run it.
 
 ## Bayesian Method
