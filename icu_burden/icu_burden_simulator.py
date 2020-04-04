@@ -19,8 +19,8 @@ import simpy
 
 
 class ICU_Types(Enum):
-    STANDARD_ICU = 1
-    VENTILATED_ICU = 2
+    standard_icu = 1
+    ventilated_icu = 2
 
 
 def hospital_manager(env, icu_type, hospital, hours_in_day):
@@ -66,73 +66,61 @@ def update_icu_departments(
 
         # update ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
-            ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list']
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list']
         total_died_ventilated_icu = round(
             len(ventilated_icu_list)*ventilated_icu_fatality_rate)
         ventilated_icu_length = len(ventilated_icu_list)
         hospital.departments_capacity[
-            ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list'] = random\
-            .sample(
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list'] = random.sample(
                 ventilated_icu_list,
                 ventilated_icu_length - total_died_ventilated_icu)
 
         # update ventilated icu
         standard_icu_list = hospital.departments_capacity[
-            ICU_Types.STANDARD_ICU.name]['icu_date_arriving_list']
-        total_died_standard_icu = round(
-            len(standard_icu_list)*standard_icu_fatality_rate)
+            ICU_Types.standard_icu.name]['icu_date_arriving_list']
+        total_died_standard_icu = round(len(standard_icu_list)*standard_icu_fatality_rate)
         standard_icu_length = len(standard_icu_list)
         hospital.departments_capacity[
-            ICU_Types.STANDARD_ICU.name]['icu_date_arriving_list'] = random\
-            .sample(standard_icu_list,
-                    standard_icu_length - total_died_standard_icu)
+            ICU_Types.standard_icu.name]['icu_date_arriving_list'] = random.sample(
+                standard_icu_list,
+                standard_icu_length - total_died_standard_icu)
 
         # release standard icu
         standard_icu_list = hospital.departments_capacity[
-            ICU_Types.STANDARD_ICU.name]['icu_date_arriving_list']
+            ICU_Types.standard_icu.name]['icu_date_arriving_list']
         standard_icu_before_release_length = len(standard_icu_list)
         standard_icu_list = list(
             filter(
-                lambda arrival_date: (
-                    arrival_date + standard_icu_stay_duration) > env.now,
+                lambda arrival_date: (arrival_date + standard_icu_stay_duration) > env.now,
                 standard_icu_list))
-        standard_icu_released_count = standard_icu_before_release_length - \
-            len(standard_icu_list)
+        standard_icu_released_count = standard_icu_before_release_length - len(standard_icu_list)
         hospital.departments_capacity[
-            ICU_Types.STANDARD_ICU.name][
-                'icu_date_arriving_list'] = standard_icu_list
+            ICU_Types.standard_icu.name]['icu_date_arriving_list'] = standard_icu_list
 
         # release ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
-            ICU_Types.VENTILATED_ICU.name]['icu_date_arriving_list']
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list']
         ventilated_icu_before_release_length = len(ventilated_icu_list)
         ventilated_icu_list = list(
             filter(
-                lambda arrival_date: (
-                    arrival_date + ventilated_icu_stay_duration) > env.now,
+                lambda arrival_date: (arrival_date + ventilated_icu_stay_duration) > env.now,
                 ventilated_icu_list))
-        ventilated_icu_released_count = \
-            ventilated_icu_before_release_length - len(ventilated_icu_list)
+        ventilated_icu_released_count = ventilated_icu_before_release_length - len(ventilated_icu_list)
         hospital.departments_capacity[
-            ICU_Types.VENTILATED_ICU.name][
-                'icu_date_arriving_list'] = ventilated_icu_list
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list'] = ventilated_icu_list
 
         total_died_refused_ventilated_icu = hospital.daily_refused_total[
-            ICU_Types.VENTILATED_ICU.name]
+            ICU_Types.ventilated_icu.name]
         total_demand = {
-            icu_type: (hospital.daily_refused_total[icu_type]
-                       + hospital.daily_accepted_total[icu_type])
-            for icu_type in hospital.departments}
+            icu_type: (hospital.daily_refused_total[icu_type] + hospital.daily_accepted_total[icu_type]) for icu_type in hospital.departments}
         total_released = {
-            ICU_Types.STANDARD_ICU.name: standard_icu_released_count,
-            ICU_Types.VENTILATED_ICU.name: ventilated_icu_released_count}
+            ICU_Types.standard_icu.name: standard_icu_released_count,
+            ICU_Types.ventilated_icu.name: ventilated_icu_released_count}
         total_refused = {
-            icu_type: hospital.daily_refused_total[icu_type]
-            for icu_type in hospital.departments}
+            icu_type: hospital.daily_refused_total[icu_type] for icu_type in hospital.departments}
         total_died = {
-            ICU_Types.STANDARD_ICU.name: total_died_standard_icu,
-            ICU_Types.VENTILATED_ICU.name: (total_died_ventilated_icu +
-                                            total_died_refused_ventilated_icu)}
+            ICU_Types.standard_icu.name: total_died_standard_icu,
+            ICU_Types.ventilated_icu.name: (total_died_ventilated_icu + total_died_refused_ventilated_icu)}
 
         hospital.statistic.update({day_number: {
             'total_demand': total_demand,
@@ -154,53 +142,52 @@ def patients_arrivals(
         standard_icu_stay_duration, ventilated_icu_stay_duration,
         standard_icu_fatality_rate, ventilated_icu_fatality_rate):
     """Emulating patient arriving"""
+    growth_rate = 0
     while True:
-        total_population = get_population_by_day(
-            env.now, hours_in_day, patients_amount, doubles_in_days)
+        # growth_rate should be growth_rate+1 for being always bigger then env.now 
+        if env.now > 0 and (env.now > round(doubles_in_days*hours_in_day)*(growth_rate+1)):
+            growth_rate += 1
+
+        total_population = get_population_by_day(patients_amount, growth_rate)
         yield env.timeout(
             get_daily_incoming_rate(hours_in_day, total_population))
 
         icu_type = random.choice(hospital.departments)
-        env.process(hospital_manager(
-            env, icu_type, hospital, hours_in_day))
-        env.process(update_icu_departments(
-            env, hospital,
-            standard_icu_stay_duration, ventilated_icu_stay_duration,
-            standard_icu_fatality_rate, ventilated_icu_fatality_rate,
-            hours_in_day))
+        env.process(
+            hospital_manager(env, icu_type, hospital, hours_in_day))
+        env.process(
+            update_icu_departments(
+                env, hospital,
+                standard_icu_stay_duration, ventilated_icu_stay_duration,
+                standard_icu_fatality_rate, ventilated_icu_fatality_rate,
+                hours_in_day))
 
 
 def is_there_difference_between_max_and_current(departments_capacity):
-    return departments_capacity['max_capacity'] - \
-        len(departments_capacity['icu_date_arriving_list'])
+    return departments_capacity['max_capacity'] - len(departments_capacity['icu_date_arriving_list'])
 
 
 def get_nearest_day(time_now, hours_in_day):
     return math.ceil(time_now / hours_in_day)
 
 
-def get_population_by_day(
-        time_now, hours_in_day, patients_amount, doubles_in_days):
-    return ((get_nearest_day(time_now, hours_in_day) *
-             doubles_in_days *
-             patients_amount) +
-            patients_amount)
+def get_population_by_day(patients_amount, growth_rate):
+    return ((growth_rate * patients_amount) + patients_amount)
 
 
 def get_daily_incoming_rate(hours_in_day, population):
     return hours_in_day / population
 
 
-def simulate(patients_amount=120,
-             hours_in_day=24,
-             days_to_simulate=20,
-             doubles_in_days=0.178,
-             starting_standard_icu_count=100,
-             starting_ventilated_icu_count=30,
-             standard_icu_capacity=100,
-             ventilated_icu_capacity=30,
-             standard_icu_fatality_rate=0.1,
-             ventilated_icu_fatality_rate=0.1,
+def simulate(patients_amount: int = 120,
+             days_to_simulate: int = 20,
+             doubles_in_days: float = 4.1,
+             starting_standard_icu_count: int = 100,
+             starting_ventilated_icu_count: int = 30,
+             standard_icu_capacity: int = 100,
+             ventilated_icu_capacity: int = 30,
+             standard_icu_fatality_rate: float = 0.1,
+             ventilated_icu_fatality_rate: float = 0.1,
              standard_icu_stay_duration=5,
              ventilated_icu_stay_duration=5):
 
@@ -210,6 +197,7 @@ def simulate(patients_amount=120,
         'daily_refused_total, daily_accepted_total, statistic')
     # Setup and start the simulation
     random_seed = 42
+    hours_in_day = 24
     days_to_simulate = days_to_simulate*hours_in_day
     standard_icu_stay_duration = standard_icu_stay_duration*hours_in_day
     ventilated_icu_stay_duration = ventilated_icu_stay_duration*hours_in_day
@@ -220,12 +208,12 @@ def simulate(patients_amount=120,
     # Create icu_type hospital
     counter = simpy.Resource(env, capacity=1)
     statistic = {}
-    departments = [ICU_Types.STANDARD_ICU.name, ICU_Types.VENTILATED_ICU.name]
+    departments = [ICU_Types.standard_icu.name, ICU_Types.ventilated_icu.name]
     departments_capacity = {
-        ICU_Types.STANDARD_ICU.name: {
+        ICU_Types.standard_icu.name: {
             'max_capacity': standard_icu_capacity,
             'icu_date_arriving_list': [0] * starting_standard_icu_count},
-        ICU_Types.VENTILATED_ICU.name: {
+        ICU_Types.ventilated_icu.name: {
             'max_capacity': ventilated_icu_capacity,
             'icu_date_arriving_list': [0] * starting_ventilated_icu_count}}
 
