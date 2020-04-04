@@ -25,6 +25,7 @@ DROP MATERIALIZED VIEW IF EXISTS icu_burden CASCADE;
 CREATE MATERIALIZED VIEW icu_burden AS
 SELECT
   md5(icu.icustay_id::varchar) as id,
+  icu.duration_hours as icu_duration_hours,
   -- icu.icustay_id as id,
   -- age_group concept
   ag.age as age_in_years,

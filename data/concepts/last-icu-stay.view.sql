@@ -7,7 +7,8 @@
   SELECT
     icu.hadm_id,
     icu.icustay_id,
-    icu.intime
+    icu.intime,
+    ROUND(EXTRACT(EPOCH FROM icu.outtime - icu.intime)/3600) as duration_hours
   FROM
     icustays icu
     INNER JOIN (
