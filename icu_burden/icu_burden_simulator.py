@@ -39,7 +39,7 @@ def hospital_manager(env, icu_type, hospital, hours_in_day):
         place_available = max_capacity - new_cases
 
         # Check if it's our turn or if icu_type is filled in
-        if place_available == 0:
+        if place_available <= 0:
             hospital.daily_refused_total[icu_type] += 1
 
         else:
@@ -64,18 +64,7 @@ def update_icu_departments(
             (nearest_hour % hours_in_day == 0) and
             (day_number not in hospital.statistic)):
 
-        # update ventilated icu
-        ventilated_icu_list = hospital.departments_capacity[
-            ICU_Types.ventilated_icu.name]['icu_date_arriving_list']
-        total_died_ventilated_icu = round(
-            len(ventilated_icu_list)*ventilated_icu_fatality_rate)
-        ventilated_icu_length = len(ventilated_icu_list)
-        hospital.departments_capacity[
-            ICU_Types.ventilated_icu.name]['icu_date_arriving_list'] = random.sample(
-                ventilated_icu_list,
-                ventilated_icu_length - total_died_ventilated_icu)
-
-        # update ventilated icu
+        # update standard icu
         standard_icu_list = hospital.departments_capacity[
             ICU_Types.standard_icu.name]['icu_date_arriving_list']
         total_died_standard_icu = round(len(standard_icu_list)*standard_icu_fatality_rate)
@@ -84,6 +73,16 @@ def update_icu_departments(
             ICU_Types.standard_icu.name]['icu_date_arriving_list'] = random.sample(
                 standard_icu_list,
                 standard_icu_length - total_died_standard_icu)
+
+        # update ventilated icu
+        ventilated_icu_list = hospital.departments_capacity[
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list']
+        total_died_ventilated_icu = round(len(ventilated_icu_list)*ventilated_icu_fatality_rate)
+        ventilated_icu_length = len(ventilated_icu_list)
+        hospital.departments_capacity[
+            ICU_Types.ventilated_icu.name]['icu_date_arriving_list'] = random.sample(
+                ventilated_icu_list,
+                ventilated_icu_length - total_died_ventilated_icu)
 
         # release standard icu
         standard_icu_list = hospital.departments_capacity[
@@ -144,7 +143,7 @@ def patients_arrivals(
     """Emulating patient arriving"""
     growth_rate = 0
     while True:
-        # growth_rate should be growth_rate+1 for being always bigger then env.now 
+        # growth_rate should be growth_rate+1 for being always bigger then env.now
         if env.now > 0 and (env.now > round(doubles_in_days*hours_in_day)*(growth_rate+1)):
             growth_rate += 1
 
@@ -179,17 +178,30 @@ def get_daily_incoming_rate(hours_in_day, population):
     return hours_in_day / population
 
 
-def simulate(patients_amount: int = 120,
-             days_to_simulate: int = 20,
-             doubles_in_days: float = 4.1,
-             starting_standard_icu_count: int = 100,
-             starting_ventilated_icu_count: int = 30,
-             standard_icu_capacity: int = 100,
-             ventilated_icu_capacity: int = 30,
-             standard_icu_fatality_rate: float = 0.1,
-             ventilated_icu_fatality_rate: float = 0.1,
-             standard_icu_stay_duration=5,
-             ventilated_icu_stay_duration=5):
+def simulate(params_dictionary: dict = {
+             'patients_amount':  120,
+             'days_to_simulate':  20,
+             'doubles_in_days': 4.1,
+             'starting_standard_icu_count': 100,
+             'starting_ventilated_icu_count':  30,
+             'standard_icu_capacity': 100,
+             'ventilated_icu_capacity': 30,
+             'standard_icu_fatality_rate': 0.1,
+             'ventilated_icu_fatality_rate': 0.1,
+             'standard_icu_stay_duration': 5,
+             'ventilated_icu_stay_duration': 5}):
+
+    patients_amount = params_dictionary['patients_amount']
+    days_to_simulate = params_dictionary['days_to_simulate']
+    doubles_in_days = params_dictionary['doubles_in_days']
+    starting_standard_icu_count = params_dictionary['starting_standard_icu_count']
+    starting_ventilated_icu_count = params_dictionary['starting_ventilated_icu_count']
+    standard_icu_capacity = params_dictionary['standard_icu_capacity']
+    ventilated_icu_capacity = params_dictionary['ventilated_icu_capacity']
+    standard_icu_fatality_rate = params_dictionary['standard_icu_fatality_rate']
+    ventilated_icu_fatality_rate = params_dictionary['ventilated_icu_fatality_rate']
+    standard_icu_stay_duration = params_dictionary['standard_icu_stay_duration']
+    ventilated_icu_stay_duration = params_dictionary['ventilated_icu_stay_duration']
 
     hospital = collections.namedtuple(
         'Hospital',
