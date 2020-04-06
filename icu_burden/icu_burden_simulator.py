@@ -75,6 +75,7 @@ def update_statistic(env,
                      hours_in_day):
     nearest_hour = round(env.now)
     day_number = int(nearest_hour / hours_in_day)
+    """Update statistic every 24 hours"""
 
     if ((nearest_hour != 0) and
             (nearest_hour % hours_in_day == 0) and
@@ -117,7 +118,6 @@ def update_statistic(env,
 def update_icu_departments(env,
                            hospital,
                            update_frequency_in_hours):
-    """Update statistic every 24 hours"""
 
     nearest_hour = round(env.now)
 
@@ -132,10 +132,11 @@ def update_icu_departments(env,
         # apply fatality probability to standard icu
         standard_icu_list = hospital.departments_capacity[
             standard_name]['icu_list']
+        standard_icu_die_list = filter_icu_list_by_fatality_probability(
+            standard_icu_list,
+            env.now)
         hospital.departments_capacity[
-            standard_name]['icu_list'] = filter_icu_list_by_fatality_probability(
-                standard_icu_list,
-                env.now)
+            standard_name]['icu_list'] = lists_diff(standard_icu_list, standard_icu_die_list)
         total_died_standard_icu = len(standard_icu_list) - len(hospital.departments_capacity[
             standard_name]['icu_list'])
         hospital.daily_died_total[standard_name] += total_died_standard_icu
@@ -143,10 +144,11 @@ def update_icu_departments(env,
         # apply fatality probability to ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
             ventilated_name]['icu_list']
+        ventilated_icu_die_list = filter_icu_list_by_fatality_probability(
+            ventilated_icu_list,
+            env.now)
         hospital.departments_capacity[
-            ventilated_name]['icu_list'] = filter_icu_list_by_fatality_probability(
-                ventilated_icu_list,
-                env.now)
+            ventilated_name]['icu_list'] = lists_diff(ventilated_icu_list, ventilated_icu_die_list)
         total_died_ventilated_icu = len(ventilated_icu_list) - len(hospital.departments_capacity[
             ventilated_name]['icu_list'])
         hospital.daily_died_total[ventilated_name] += total_died_ventilated_icu
@@ -225,8 +227,7 @@ def filter_icu_list_by_fatality_probability(icu_list, date_now):
     return list(
         filter(
             lambda icu:
-                icu.stay_duration > date_now and (
-                    icu.stay_duration > date_now or icu.fatality_probability),
+                icu.stay_duration <= date_now and icu.fatality_probability,
             icu_list))
 
 
@@ -245,15 +246,19 @@ def get_nearest_day(time_now, hours_in_day):
     return math.ceil(time_now / hours_in_day)
 
 
+def lists_diff(first, second):
+    second = set(second)
+    return [item for item in first if item not in second]
+
+
 def get_population_by_day(
         time_now,
         hours_in_day,
         patients_amount,
         doubles_in_days) -> float:
-    return ((
-        (get_nearest_day(time_now, hours_in_day)/doubles_in_days)
-        * patients_amount)
-        + patients_amount)
+    return (((get_nearest_day(time_now, hours_in_day)/doubles_in_days)
+             * patients_amount)
+            + patients_amount)
 
 
 def get_daily_incoming_rate(hours_in_day, population) -> float:
@@ -395,10 +400,13 @@ def simulate(params_dictionary: dict = {
 
 
 # def show_results(df):
-#     import matplotlib.pyplot as plt
-#     # a scatter plot comparing num_children and num_pets
-#     df.plot(kind='scatter', x='day', y='standard_icu', color='red')
-#     plt.show()
+#     import astetik
+
+#     # astetik.hist(df, 'column_name')
+#     # astetik.line(df)
+#     astetik.line(df, ['standard_icu', 'ventilated_icu'])
+#     # or just
+#     # astetik.line(df, 'col1')
 
 
-# show_results(stats_to_dataframe(simulate()))
+# stats_to_dataframe(simulate())
