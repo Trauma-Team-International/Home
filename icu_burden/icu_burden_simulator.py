@@ -112,6 +112,9 @@ def update_statistic(env,
         hospital.daily_released_total.update({
             icu_type: 0 for icu_type in hospital.departments})
 
+        hospital.daily_accepted_total.update({
+            icu_type: 0 for icu_type in hospital.departments})
+
     yield env.exit()
 
 
@@ -369,34 +372,34 @@ def simulate(params_dictionary: dict = {
     return hospital.statistic
 
 
-# def stats_to_dataframe(results):
+def stats_to_dataframe(results):
 
-#     import pandas as pd
+    import pandas as pd
 
-#     out = []
-#     cols = []
+    out = []
+    cols = []
 
-#     # get day key
-#     for day in results.keys():
+    # get day key
+    for day in results.keys():
 
-#         _temp_ = []
-#         cols = []
+        _temp_ = []
+        cols = []
 
-#         # get metric name key
-#         for metric in results[day].keys():
+        # get metric name key
+        for metric in results[day].keys():
 
-#             _temp_.append(results[day][metric]['standard_icu'])
-#             _temp_.append(results[day][metric]['ventilated_icu'])
+            _temp_.append(results[day][metric]['standard_icu'])
+            _temp_.append(results[day][metric]['ventilated_icu'])
 
-#             cols.append('standard_icu_' + metric)
-#             cols.append('ventilated_icu_' + metric)
+            cols.append('standard_icu_' + metric)
+            cols.append('ventilated_icu_' + metric)
 
-#         out.append(_temp_)
+        out.append(_temp_)
 
-#     df = pd.DataFrame(out)
-#     df.columns = cols
+    df = pd.DataFrame(out)
+    df.columns = cols
 
-#     return df
+    return df
 
 
 # def show_results(df):
@@ -408,5 +411,28 @@ def simulate(params_dictionary: dict = {
 #     # or just
 #     # astetik.line(df, 'col1')
 
+def params():
 
-# stats_to_dataframe(simulate())
+    import random
+    import numpy as np
+
+    _capacity_ = random.choice(list(range(100, 1000, 50)))
+    _fatality_rate_ = round(random.choice(np.arange(0.2, 0.6, .01)), 2)
+    _duration_ = random.choice(list(range(8, 25, 50)))
+
+    return {
+        'patients_amount': 120,
+        'days_to_simulate': 30,
+        'doubles_in_days': round(random.choice(np.arange(2.0, 9.0, .1)), 2),
+        'starting_standard_icu_count': int(45),
+        'starting_ventilated_icu_count': int(30),
+        'standard_icu_capacity': int(_capacity_),
+        'ventilated_icu_capacity': int(_capacity_ * (np.random.normal(1, 0.01) * .5)),
+        'standard_icu_fatality_rate': float(_fatality_rate_),
+        'ventilated_icu_fatality_rate': round(_fatality_rate_ * (np.random.normal(1, 0.01) * 1.7), 2),
+        'standard_icu_stay_duration': int(_duration_),
+        'ventilated_icu_stay_duration': int(_duration_ * (np.random.normal(1, 0.01) * 1.1)),
+    }
+
+
+stats_to_dataframe(simulate(params()))
