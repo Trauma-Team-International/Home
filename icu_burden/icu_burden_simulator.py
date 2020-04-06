@@ -160,7 +160,7 @@ def update_icu_departments(env,
                 env.now)
         standard_icu_released_count = len(standard_icu_list) - len(hospital.departments_capacity[
             standard_name]['icu_list'])
-        hospital.daily_released_total[standard_name] += total_died_standard_icu
+        hospital.daily_released_total[standard_name] += standard_icu_released_count
 
         # release ventilated icu
         ventilated_icu_list = hospital.departments_capacity[
@@ -171,7 +171,7 @@ def update_icu_departments(env,
                 env.now)
         ventilated_icu_released_count = len(ventilated_icu_list) - len(hospital.departments_capacity[
             ventilated_name]['icu_list'])
-        hospital.daily_released_total[ventilated_name] += total_died_standard_icu
+        hospital.daily_released_total[ventilated_name] += ventilated_icu_released_count
 
     yield env.exit()
 
@@ -184,35 +184,41 @@ def patients_arrivals(
         doubles_in_days,
         update_frequency_in_hours):
     """Emulating patient arriving"""
-    growth_rate = 0
+    update_timeout = 1
     while True:
-        # growth_rate should be growth_rate+1 for being always bigger then env.now
-        # if env.now > 0 and (env.now > round(doubles_in_days*hours_in_day)*(growth_rate+1)):
-        #     growth_rate += 1
 
-        # total_population = get_population_by_day(patients_amount, growth_rate)
         total_population = get_population_by_day(env.now,
                                                  hours_in_day,
                                                  patients_amount,
                                                  doubles_in_days)
+        mu, sigma = (env.now + 13), 4  # mean and standard deviation
+        arriving_distribution = np.random.normal(mu,
+                                                 sigma,
+                                                 int(total_population))
+        while True:
+            filtered_arriving_dates = list(filter(
+                lambda arriving_date: env.now <= arriving_date <= env.now + update_timeout,
+                arriving_distribution))
 
-        yield env.timeout(
-            get_daily_incoming_rate(hours_in_day, total_population))
+            if env.now != 0 and env.now % hours_in_day == 0:
+                env.process(update_statistic(env,
+                                             hospital,
+                                             hours_in_day))
+                yield env.timeout(update_timeout)
+                break
 
-        icu_type = random.choice(hospital.departments)
-        env.process(
-            hospital_manager(env,
-                             icu_type,
-                             hospital,
-                             hours_in_day))
-        env.process(
-            update_icu_departments(env,
-                                   hospital,
-                                   update_frequency_in_hours))
-        env.process(
-            update_statistic(env,
-                             hospital,
-                             hours_in_day))
+            else:
+                for arriving_date in filtered_arriving_dates:
+                    icu_type = random.choice(hospital.departments)
+                    env.process(hospital_manager(env,
+                                                 icu_type,
+                                                 hospital,
+                                                 hours_in_day))
+                    env.process(update_icu_departments(env,
+                                                       hospital,
+                                                       update_frequency_in_hours))
+
+            yield env.timeout(update_timeout)
 
 
 def filter_icu_list_by_fatality_probability(icu_list, date_now):
@@ -238,9 +244,6 @@ def is_there_difference_between_max_and_current(departments_capacity):
 def get_nearest_day(time_now, hours_in_day):
     return math.ceil(time_now / hours_in_day)
 
-
-# def get_population_by_day(patients_amount, growth_rate):
-#     return ((growth_rate * patients_amount) + patients_amount)
 
 def get_population_by_day(
         time_now,
@@ -361,4 +364,41 @@ def simulate(params_dictionary: dict = {
     return hospital.statistic
 
 
-simulate()
+# def stats_to_dataframe(results):
+
+#     import pandas as pd
+
+#     out = []
+#     cols = []
+
+#     # get day key
+#     for day in results.keys():
+
+#         _temp_ = []
+#         cols = []
+
+#         # get metric name key
+#         for metric in results[day].keys():
+
+#             _temp_.append(results[day][metric]['standard_icu'])
+#             _temp_.append(results[day][metric]['ventilated_icu'])
+
+#             cols.append('standard_icu_' + metric)
+#             cols.append('ventilated_icu_' + metric)
+
+#         out.append(_temp_)
+
+#     df = pd.DataFrame(out)
+#     df.columns = cols
+
+#     return df
+
+
+# def show_results(df):
+#     import matplotlib.pyplot as plt
+#     # a scatter plot comparing num_children and num_pets
+#     df.plot(kind='scatter', x='day', y='standard_icu', color='red')
+#     plt.show()
+
+
+# show_results(stats_to_dataframe(simulate()))
