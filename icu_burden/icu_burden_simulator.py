@@ -73,7 +73,7 @@ def hospital_manager(env, icu_type, hospital, hours_in_day):
 def update_statistic(env,
                      hospital,
                      hours_in_day):
-    nearest_hour = round(env.now)
+    nearest_hour = round(env.now+1)
     day_number = int(nearest_hour / hours_in_day)
     """Update statistic every 24 hours"""
 
@@ -127,10 +127,6 @@ def update_icu_departments(env,
     if ((nearest_hour != 0) and (nearest_hour % update_frequency_in_hours == 0)):
         standard_name = ICU_Types.standard_icu.name
         ventilated_name = ICU_Types.ventilated_icu.name
-        standard_icu_stay_duration = hospital.icu_properties[standard_name]['stay_duration']
-        ventilated_icu_stay_duration = hospital.icu_properties[ventilated_name]['stay_duration']
-        standard_icu_fatality_rate = hospital.icu_properties[standard_name]['fatality_rate']
-        ventilated_icu_fatality_rate = hospital.icu_properties[ventilated_name]['fatality_rate']
 
         # apply fatality probability to standard icu
         standard_icu_list = hospital.departments_capacity[
@@ -221,13 +217,13 @@ def patients_arrivals(
                 'icu_type': ventilated_icu_name,
                 'arriving_date': ad}, arriving_ventilated_icu_distribution)))
 
-        while True:
+        for hour in range(1, 25):
             filtered_icu_entities = list(filter(
-                lambda icu_entity: env.now <= icu_entity['arriving_date'] <= env.now +
-                update_timeout,
+                lambda icu_entity: (
+                    env.now <= icu_entity['arriving_date'] <= env.now + update_timeout),
                 total_icu_arriving_distribution))
 
-            if env.now != 0 and env.now % hours_in_day == 0:
+            if env.now != 0 and hour % hours_in_day == 0:
                 # interrupt cycle every 24 hours
                 env.process(update_statistic(env,
                                              hospital,
@@ -306,8 +302,8 @@ def simulate(params_dictionary: dict = {
              'starting_ventilated_icu_count':  30,
              'standard_icu_capacity': 100,
              'ventilated_icu_capacity': 30,
-             'standard_icu_fatality_rate': 0.1,
-             'ventilated_icu_fatality_rate': 0.1,
+             'standard_icu_fatality_rate': 0.9,
+             'ventilated_icu_fatality_rate': 0.9,
              'standard_icu_stay_duration': 10,
              'ventilated_icu_stay_duration': 10}):
 
@@ -323,6 +319,10 @@ def simulate(params_dictionary: dict = {
     ventilated_icu_fatality_rate = params_dictionary['ventilated_icu_fatality_rate']
     standard_icu_stay_duration = params_dictionary['standard_icu_stay_duration']
     ventilated_icu_stay_duration = params_dictionary['ventilated_icu_stay_duration']
+
+    if (starting_standard_icu_count > standard_icu_capacity
+            or starting_ventilated_icu_count > ventilated_icu_capacity):
+        raise Exception("Starting amount can't be bigger then capacity!")
 
     hospital = collections.namedtuple(
         'Hospital',
@@ -401,8 +401,9 @@ def stats_to_dataframe(results):
 
     import pandas as pd
 
-    pd.set_option("display.max_rows", 20)
-    pd.set_option('display.width', None)
+    # pd.set_option("display.max_rows", 5)
+    # pd.set_option("display.max_columns", 7)
+    # pd.set_option('display.width', None)
 
     out = []
     cols = []
@@ -455,4 +456,4 @@ def params():
     }
 
 
-stats_to_dataframe(simulate(params()))
+stats_to_dataframe(simulate())
