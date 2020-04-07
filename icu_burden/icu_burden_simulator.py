@@ -212,7 +212,7 @@ def patients_arrivals(
                                                                 int(total_ventilated_icu_population))
         standard_icu_name = hospital.departments[0]
         ventilated_icu_name = hospital.departments[1]
-        arriving_distribution = list(
+        total_icu_arriving_distribution = list(
             list(map(lambda ad: {
                 'icu_type': standard_icu_name,
                 'arriving_date': ad}, arriving_standard_icu_distribution))
@@ -222,11 +222,13 @@ def patients_arrivals(
                 'arriving_date': ad}, arriving_ventilated_icu_distribution)))
 
         while True:
-            filtered_arriving_dates = list(filter(
-                lambda arriving_date: env.now <= arriving_date <= env.now + update_timeout,
-                arriving_distribution))
+            filtered_icu_entities = list(filter(
+                lambda icu_entity: env.now <= icu_entity['arriving_date'] <= env.now +
+                update_timeout,
+                total_icu_arriving_distribution))
 
             if env.now != 0 and env.now % hours_in_day == 0:
+                # interrupt cycle every 24 hours
                 env.process(update_statistic(env,
                                              hospital,
                                              hours_in_day))
@@ -234,10 +236,9 @@ def patients_arrivals(
                 break
 
             else:
-                for arriving_date in filtered_arriving_dates:
-                    icu_type = random.choice(hospital.departments)
+                for icu_entity in filtered_icu_entities:
                     env.process(hospital_manager(env,
-                                                 icu_type,
+                                                 icu_entity['icu_type'],
                                                  hospital,
                                                  hours_in_day))
                     env.process(update_icu_departments(env,
