@@ -102,7 +102,7 @@ def update_statistic(env,
             'total_died': total_died
         }})
 
-        # cleanup count for next the day
+        # cleanup count for the next day
         hospital.daily_died_total.update({
             icu_type: 0 for icu_type in hospital.departments})
 
@@ -196,10 +196,31 @@ def patients_arrivals(
                                                  hours_in_day,
                                                  patients_amount,
                                                  doubles_in_days)
-        mu, sigma = (env.now + 13), 4  # mean and standard deviation
-        arriving_distribution = np.random.normal(mu,
-                                                 sigma,
-                                                 int(total_population))
+        # mean of hours and standard deviation of hours
+        mu, sigma = (env.now + 13), 4
+        require_ventilation_rate = hospital.require_ventilation_rate + \
+            np.random.normal(0, 0.01)
+        total_standard_icu_population = round(
+            total_population * (1 - require_ventilation_rate))
+        total_ventilated_icu_population = round(
+            total_population * require_ventilation_rate)
+        arriving_standard_icu_distribution = np.random.normal(mu,
+                                                              sigma,
+                                                              int(total_standard_icu_population))
+        arriving_ventilated_icu_distribution = np.random.normal(mu,
+                                                                sigma,
+                                                                int(total_ventilated_icu_population))
+        standard_icu_name = hospital.departments[0]
+        ventilated_icu_name = hospital.departments[1]
+        arriving_distribution = list(
+            list(map(lambda ad: {
+                'icu_type': standard_icu_name,
+                'arriving_date': ad}, arriving_standard_icu_distribution))
+            +
+            list(map(lambda ad: {
+                'icu_type': ventilated_icu_name,
+                'arriving_date': ad}, arriving_ventilated_icu_distribution)))
+
         while True:
             filtered_arriving_dates = list(filter(
                 lambda arriving_date: env.now <= arriving_date <= env.now + update_timeout,
@@ -277,6 +298,7 @@ def generate_random_icu_list(icu_count: int, icu_stay_duration: int, icu_type: s
 
 def simulate(params_dictionary: dict = {
              'patients_amount':  120,
+             'require_ventilation_rate':  0.3,
              'days_to_simulate':  20,
              'doubles_in_days': 4.1,
              'starting_standard_icu_count': 100,
@@ -289,6 +311,7 @@ def simulate(params_dictionary: dict = {
              'ventilated_icu_stay_duration': 10}):
 
     patients_amount = params_dictionary['patients_amount']
+    require_ventilation_rate = params_dictionary['require_ventilation_rate']
     days_to_simulate = params_dictionary['days_to_simulate']
     doubles_in_days = params_dictionary['doubles_in_days']
     starting_standard_icu_count = params_dictionary['starting_standard_icu_count']
@@ -302,7 +325,7 @@ def simulate(params_dictionary: dict = {
 
     hospital = collections.namedtuple(
         'Hospital',
-        'counter, departments, departments_capacity,'
+        'counter, departments, departments_capacity, require_ventilation_rate,'
         'daily_refused_total, daily_accepted_total, daily_released_total, daily_died_total, statistic, icu_properties')
 
     # Setup and start the simulation
@@ -353,6 +376,7 @@ def simulate(params_dictionary: dict = {
     hospital = hospital(counter,
                         departments,
                         departments_capacity,
+                        require_ventilation_rate,
                         daily_refused_total,
                         daily_accepted_total,
                         daily_released_total,
@@ -375,6 +399,9 @@ def simulate(params_dictionary: dict = {
 def stats_to_dataframe(results):
 
     import pandas as pd
+
+    pd.set_option("display.max_rows", 20)
+    pd.set_option('display.width', None)
 
     out = []
     cols = []
@@ -402,15 +429,6 @@ def stats_to_dataframe(results):
     return df
 
 
-# def show_results(df):
-#     import astetik
-
-#     # astetik.hist(df, 'column_name')
-#     # astetik.line(df)
-#     astetik.line(df, ['standard_icu', 'ventilated_icu'])
-#     # or just
-#     # astetik.line(df, 'col1')
-
 def params():
 
     import random
@@ -422,6 +440,7 @@ def params():
 
     return {
         'patients_amount': 120,
+        'require_ventilation_rate':  0.3,
         'days_to_simulate': 30,
         'doubles_in_days': round(random.choice(np.arange(2.0, 9.0, .1)), 2),
         'starting_standard_icu_count': int(45),
