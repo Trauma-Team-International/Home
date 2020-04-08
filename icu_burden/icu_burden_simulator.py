@@ -1,4 +1,9 @@
 """
+Required packages:
+ - simpy: 3.0.12
+ - numpy: 1.18.1
+ - pandas: 1.0.3
+
 Scenario:
 - there is a certain number of patients at start day_total_cases
 - each day there are more new patients based on doubles_in_days
