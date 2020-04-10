@@ -2,6 +2,11 @@
 
 ## COVID-19 ICU Burden: what can we learn from available ICU data?
 
+Examples of good use for this dataset: 
+
+- Capacity analysis (e.g. "how many ventilators do we need for a certain patient flow?")
+- Survival analysis (e.g "how to increase rate of 1-year survival?")
+
 The dataset is aimed to be highly relevant to COVID-19 related ICU capacity problem related research and decision making. Most data science and research workflows can be performed with zero ETL. Full description of the dataset is provided [below](#overview).
 
 - [Dataset Themes](#pushpin-dataset-themes)
