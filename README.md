@@ -26,11 +26,11 @@ Trauma Team International use research and statistical methods to answer critica
 
 Questions we are focused on answering and providing insights for include: 
 
->*1) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"
+>*1) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"*
 
 >*2) "we have x ventilators / ventilator operators and forecast y patients needing ventilation, but x is smaller than y, what can we do?"*
 
->*3) "let number of people dying from COVID-19 be `x`, how can we make `x` smaller instead of just changing the time distribution?"
+>*3) "let number of people dying from COVID-19 be `x`, how can we make `x` smaller instead of just changing the time distribution?"*
 
 ### :gem: contributions
 
