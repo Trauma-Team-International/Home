@@ -77,10 +77,10 @@ If you use Trauma Team International's research, data, or findings for published
 [MIT License](https://github.com/autonomio/talos/blob/master/LICENSE)
 
 [github issue tracker]: https://github.com/automio/trauma-team-international/issues
-[wiki]: https://github.com/autonomio/talos/wiki
+[wiki]: https://github.com/autonomio/trauma-team-international/wiki
 [discord]: https://discord.gg/t7vk27
 
-### Key Contributors
+### :raising_hand: Contributors
 
 - Arun Raguraman
 - Dan Todor
@@ -95,11 +95,13 @@ If you use Trauma Team International's research, data, or findings for published
 - Prasenjit Dey
 - Siim Sainäs
 
-Huge thanks go to everyone else who have contributed, as well as huge thx to [Cavai](https://cav.ai) and [Lily](https://lily-ai.com) for contributing people with skills beyond belief.
+Huge thanks go to everyone else who have contributed, as well as to [Cavai](https://cav.ai) and [Lily](https://lily-ai.com) for contributing people with skills beyond belief.
 
+```
 
   ,d88b.d88b,
   88888888888
   `Y8888888Y'
     `Y888Y'   
       `Y'
+```
