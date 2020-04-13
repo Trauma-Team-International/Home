@@ -81,6 +81,8 @@ If you use Trauma Team International's research, data, or findings for published
 [wiki]: https://github.com/autonomio/trauma-team-international/wiki
 [discord]: https://discord.gg/t7vk27
 
+<hr>
+
 ### :raising_hand: Contributors
 
 - Arun Raguraman
