@@ -97,7 +97,10 @@ If you use Trauma Team International's research, data, or findings for published
 
 ...and everyone else who contributed but I forgot.
 
+
 ```
+Also huge thanks goes to Cavai (https://cav.ai) and Lily (https://lily-ai.com) who have most kindly contributed engineering and data science resources to our work.
+
   ,d88b.d88b,
   88888888888
   `Y8888888Y'
