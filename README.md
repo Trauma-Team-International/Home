@@ -95,15 +95,11 @@ If you use Trauma Team International's research, data, or findings for published
 - Prasenjit Dey
 - Siim Sainäs
 
-...and everyone else who contributed but I forgot.
+Huge thanks go to everyone else who have contributed, as well as huge thx to [Cavai](https://cav.ai) and [Lily](https://lily-ai.com) for contributing people with skills beyond belief.
 
-
-```
 
   ,d88b.d88b,
   88888888888
   `Y8888888Y'
-    `Y888Y'    -huge thx to Cavai (https://cav.ai) and Lily (https://lily-ai.com) for contributing amazing people-
+    `Y888Y'   
       `Y'
-
-```
