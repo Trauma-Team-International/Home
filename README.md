@@ -31,11 +31,24 @@ Questions we are focused on answering and providing insights for include:
 >*2) "how can you avoid things escalating to the level where ventilator is needed in the first place."*
 <hr>
 
-Other objectives: 
+>*3) "let number of people dying from COVID-19 be `x`, how can we make `x` smaller instead of just changing the time distribution?"
 
-- [ ] make available meaningful datasets for other reseachers
-- [ ] make available a tool that dramatically increase access to literature
-- [ ] make available statistical and machine learning models for other researchers
+>*4) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"
+
+**Methods:** 
+
+- make available meaningful datasets for other reseachers
+- make available a tool that dramatically increase access to literature
+- make available statistical and machine learning models for other researchers
+
+**Contributions:**
+
+- [Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
+- [Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
+- [Intensive Care Unit Burden Dataset](https://github.com/autonomio/trauma-team-international/tree/master/data)
+- [RK4-based SEIR for Python](https://github.com/autonomio/trauma-team-international/blob/master/SEIR/rk4.py)
+- [Bayesian COVID-19 Forecasting](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py)
+- ["What Can COVID-19 Forecasters Learn from Pascal’s Wager"](https://towardsdatascience.com/what-can-covid-19-forecasters-learn-from-pascals-wager-acb010f347e0)
 
 ### :gem: why?
 
