@@ -26,14 +26,11 @@ Trauma Team International use research and statistical methods to answer critica
 
 Questions we are focused on answering and providing insights for include: 
 
->*1) "we have x ventilators / ventilator operators and have y patients immediately needing ventilation, but x is smaller than y, who is least likely to survive"*
+>*1) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"
 
->*2) "how can you avoid things escalating to the level where ventilator is needed in the first place."*
-<hr>
+>*2) "we have x ventilators / ventilator operators and forecast y patients needing ventilation, but x is smaller than y, what can we do?"*
 
 >*3) "let number of people dying from COVID-19 be `x`, how can we make `x` smaller instead of just changing the time distribution?"
-
->*4) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"
 
 ### :gem: contributions
 
@@ -56,18 +53,6 @@ Current system and data contributions include:
 Articles:
 
 - ["What Can COVID-19 Forecasters Learn from Pascal’s Wager"](https://towardsdatascience.com/what-can-covid-19-forecasters-learn-from-pascals-wager-acb010f347e0)
-
-<hr>
-
-### :wrench: how?
-
-- Literature and desk research
-- Quantitative data analysis
-  - Descriptive analysis
-  - Statistical analysis
-  - Machine learning
-- Monte Carlo simulation
-- Data visualization
 
 <hr>
 
