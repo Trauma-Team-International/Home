@@ -44,13 +44,17 @@ Trauma Team International's contributions fall under three categories:
 - make available statistical and machine learning models
 - make available comprehensive pipelines
 
-Current contributions include:
+Current system and data contributions include:
 
-- [Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
-- [Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
+- [Pandemik: Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
+- [ICUSIM: Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
 - [Intensive Care Unit Burden Dataset](https://github.com/autonomio/trauma-team-international/tree/master/data)
+- [LiterView: Next-Gen Literature Review](https://github.com/autonomio/literview)
 - [RK4-based SEIR for Python](https://github.com/autonomio/trauma-team-international/blob/master/SEIR/rk4.py)
 - [Bayesian COVID-19 Forecasting](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py)
+
+Articles:
+
 - ["What Can COVID-19 Forecasters Learn from Pascal’s Wager"](https://towardsdatascience.com/what-can-covid-19-forecasters-learn-from-pascals-wager-acb010f347e0)
 
 <hr>
