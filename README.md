@@ -30,7 +30,7 @@ Trauma Team International focus on use of behavioral and statistical methods to 
 
 ### :gem: contributions
 
-Trauma Team International's contributions fall under three categories:
+Trauma Team International's contributions fall under four categories:
 
 - make available meaningful datasets for other reseachers
 - make available a tool that dramatically increase access to literature
