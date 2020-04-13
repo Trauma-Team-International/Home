@@ -4,12 +4,11 @@
   <br>
 </h1>
 
-<h3 align="center">Trauma Team International - Coronavirus Taskforce</h3>
+<h3 align="center">Autonomio's Coronavirus Taskforce</h3>
 
 <p align="center">
   <a href="#sos-what">what?</a> •
   <a href="#gem-contributions">contributions</a> •
-  <a href="#wrench-how">how?</a> •
   <a href="#speech_balloon-how-to-get-involved">get involved?</a> •
   <a href="https://autonom.io">Autonomio</a> •
   <a href="https://github.com/autonomio/talos/issues">Issues</a> •
@@ -55,7 +54,7 @@ Articles:
 
 <hr>
 
-### 💬 How to get involved
+### :speech_balloon: How to get involved?
 
 | I want to...                     | Go to...                                                  |
 | -------------------------------- | ---------------------------------------------------------- |
