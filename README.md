@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="#sos-what">what?</a> •
-  <a href="#gem-why">why?</a> •
+  <a href="#gem-contributions">contributions</a> •
   <a href="#wrench-how">how?</a> •
   <a href="#how-to-get-involved">how to get involved?</a> •
   <a href="https://autonom.io">About Autonomio</a> •
@@ -35,13 +35,16 @@ Questions we are focused on answering and providing insights for include:
 
 >*4) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"
 
-**Methods:** 
+### :gem: contributions
+
+Trauma Team International's contributions fall under three categories:
 
 - make available meaningful datasets for other reseachers
 - make available a tool that dramatically increase access to literature
-- make available statistical and machine learning models for other researchers
+- make available statistical and machine learning models
+- make available comprehensive pipelines
 
-**Contributions:**
+Current contributions include:
 
 - [Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
 - [Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
@@ -50,15 +53,9 @@ Questions we are focused on answering and providing insights for include:
 - [Bayesian COVID-19 Forecasting](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py)
 - ["What Can COVID-19 Forecasters Learn from Pascal’s Wager"](https://towardsdatascience.com/what-can-covid-19-forecasters-learn-from-pascals-wager-acb010f347e0)
 
-### :gem: why?
-
-In many countries, healthcare systems have already been stretched thin and are not well prepared to take on the surge of coronavirus patients. Intensive Care Units (ICUs) are particularly at risk, due to limitations pertaining to ventilation machines and staff qualified to operate such machines. Once there are more patients needing ventilation than there are available ventilators or people capable of operating ventilators, patients that could otherwise been saved, will die. 
-
 <hr>
 
 ### :wrench: how?
-
-To answer these critically important questions, we leverage three gold standard methods:
 
 - Literature and desk research
 - Quantitative data analysis
@@ -67,12 +64,6 @@ To answer these critically important questions, we leverage three gold standard 
   - Machine learning
 - Monte Carlo simulation
 - Data visualization
-
-At the moment, we have several work in progress or open research tracks: 
-
-- [ ] perform a cursory literature view on COVID-19
-- [ ] use MIMIC-III dataset to evaluate pneumonia and ventilation in ICU context
-- [ ] create a simulation model for evaluating healthcare system burden scenarios
 
 <hr>
 
