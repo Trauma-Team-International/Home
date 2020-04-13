@@ -20,7 +20,7 @@ Trauma Team International is an open collective focused on <strong>providing cri
 
 ### :sos: what?
 
-Trauma Team International focus on use of behavioral and statistical methods to helping answer critically important questions about prevention of Coronavirus, and its effects on the healthcare system. Questions we focus on include:
+Trauma Team International focus on use of behavioral and statistical methods to help answer critically important questions about prevention of Coronavirus, and its effects on the healthcare system. Questions we focus on include:
 
 >*1) "what behaviors and mitigation effects yield the most favorable balance between economic, psychological, and health outcomes?"*
 
