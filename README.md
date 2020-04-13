@@ -36,8 +36,8 @@ Trauma Team International's contributions fall under three categories:
 
 - make available meaningful datasets for other reseachers
 - make available a tool that dramatically increase access to literature
-- make available statistical and machine learning models
-- make available comprehensive pipelines
+- make available relevant statistical and machine learning models
+- make available relevant end-to-end pipelines
 
 Current system and data contributions include:
 
@@ -79,3 +79,29 @@ If you use Trauma Team International's research, data, or findings for published
 [github issue tracker]: https://github.com/automio/trauma-team-international/issues
 [wiki]: https://github.com/autonomio/talos/wiki
 [discord]: https://discord.gg/t7vk27
+
+### Key Contributors
+
+- Arun Raguraman
+- Dan Todor
+- Gregory Kovalchuk
+- Henri Peetsman
+- Ilkka Sillanpää
+- Kevin Sunter
+- Mahesh Venkateswaran
+- Matti Pärssinen
+- Matti Vartainen
+- Mikko Kotila
+- Prasenjit Dey
+- Siim Sainäs
+
+...and everyone else who contributed but I forgot.
+
+```
+  ,d88b.d88b,
+  88888888888
+  `Y8888888Y'
+    `Y888Y'    -THANK YOU-
+      `Y'
+
+```
