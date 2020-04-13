@@ -44,6 +44,7 @@ Current system and data contributions include:
 - [Pandemik: Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
 - [ICUSIM: Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
 - [Intensive Care Unit Burden Dataset](https://github.com/autonomio/trauma-team-international/tree/master/data)
+- [icucalulator.com](https://www.icucalculator.com/)
 - [LiterView: Next-Gen Literature Review](https://github.com/autonomio/literview)
 - [RK4-based SEIR for Python](https://github.com/autonomio/trauma-team-international/blob/master/SEIR/rk4.py)
 - [Bayesian COVID-19 Forecasting](https://github.com/autonomio/trauma-team-international/blob/master/icu_burden/icu_burden_bayesian.py)
