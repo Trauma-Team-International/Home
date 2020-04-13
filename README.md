@@ -37,7 +37,7 @@ Trauma Team International's contributions fall under four categories:
 - make available relevant statistical and machine learning models
 - make available relevant end-to-end pipelines
 
-Current system and data contributions include:
+Data, models, and code:
 
 - [Pandemik: Behavioral Mitigation Simulator](https://github.com/autonomio/pandemik)
 - [ICUSIM: Intensive Care Unit Capacity Simulation](https://github.com/autonomio/ICUSIM)
