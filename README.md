@@ -69,7 +69,7 @@ Articles:
 
 If you use Trauma Team International's research, data, or findings for published work, please cite:
 
-`Autonomio. (2019). Retrieved from http://github.com/trauma-team-international/talos.`
+`Autonomio. (2020). Retrieved from http://github.com/trauma-team-international/talos.`
 
 <hr>
 
