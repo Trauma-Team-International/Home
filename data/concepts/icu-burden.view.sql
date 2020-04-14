@@ -3,7 +3,16 @@
 --   by composing multiple concepts (views) together.
 -- Depends On:
 --  1. Mimic-III Postgres Database
---  2. Concepts: age-group, pneumonia, ventilation-stats, survival, first-day-labs, covid-markers,
+--  2. Concepts:
+--      age-group, 
+--      pneumonia, 
+--      ventilation-stats, 
+--      survival,
+--      first-day-labs, 
+--      sofa,
+--      qsofa,
+--       covid-markers
+-- 
 -- (  
 --    last icu stay id, 
 --    age, 
@@ -121,6 +130,21 @@ SELECT
   lfd.wbc_min,
   lfd.wbc_max,
   
+  -- sofa score
+  sofa.sofa as sofa_score,
+  coalesce(sofa.respiration, 0) as sofa_respiration_score,
+  coalesce(sofa.coagulation, 0) as sofa_coagulation_score,
+  coalesce(sofa.liver, 0) as sofa_liver_score,
+  coalesce(sofa.cardiovascular, 0) as sofa_cardiovascular_score,
+  coalesce(sofa.cns, 0) as sofa_cns_score,
+  coalesce(sofa.renal, 0) as sofa_renal_score,  
+
+  -- qsofa score
+  qsofa.qsofa as qsofa_score,
+  qsofa.sysbp_score as qsofa_sysbp_score,
+  qsofa.gcs_score as qsofa_gcs_score,
+  qsofa.resprate_score as qsofa_resprate_score,
+  
   -- group by icustay_id count
   1 as total
 FROM
@@ -131,6 +155,8 @@ FROM
   LEFT JOIN patient_survival ps ON icu.hadm_id=ps.hadm_id
   LEFT JOIN diag_ards ards ON icu.hadm_id=ards.hadm_id
   LEFT JOIN labsfirstday lfd ON icu.icustay_id=lfd.icustay_id
+  LEFT JOIN sofa sofa ON icu.icustay_id=sofa.icustay_id
+  LEFT JOIN qsofa qsofa ON icu.icustay_id=qsofa.icustay_id
 WHERE
   (pn.pneumonia_influenza_source IS NOT NULL
   OR
