@@ -28,6 +28,9 @@
 --    hours_before_ventilation,
 --    diagnosed_ards,
 --    labsfirstday concept...
+--    sofa concept...
+--    qsofa concept...
+--    pao2, fio2 concept...
 --    total
 -- )
 DROP MATERIALIZED VIEW IF EXISTS icu_burden CASCADE;
@@ -144,6 +147,16 @@ SELECT
   qsofa.sysbp_score as qsofa_sysbp_score,
   qsofa.gcs_score as qsofa_gcs_score,
   qsofa.resprate_score as qsofa_resprate_score,
+
+  -- pao2, fio2 values
+  pf.min_fio2 as min_fio2,
+  pf.max_fio2 as max_fio2,
+  pf.min_fio2_set as min_fio2_set,
+  pf.max_fio2_set as max_fio2_set,
+  pf.min_pao2 as min_pao2,
+  pf.max_pao2 as max_pao2,
+  pf.min_arterial_pao2 as min_arterial_pao2,
+  pf.max_arterial_pao2 as max_arterial_pao2,
   
   -- group by icustay_id count
   1 as total
@@ -157,6 +170,7 @@ FROM
   LEFT JOIN labsfirstday lfd ON icu.icustay_id=lfd.icustay_id
   LEFT JOIN sofa sofa ON icu.icustay_id=sofa.icustay_id
   LEFT JOIN qsofa qsofa ON icu.icustay_id=qsofa.icustay_id
+  LEFT JOIN pao2_fio2 pf ON icu.icustay_id=pf.icustay_id
 WHERE
   (pn.pneumonia_influenza_source IS NOT NULL
   OR
