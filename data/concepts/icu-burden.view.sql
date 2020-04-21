@@ -149,12 +149,8 @@ SELECT
   qsofa.resprate_score as qsofa_resprate_score,
 
   -- pao2, fio2 values
-  pf.min_fio2 as min_fio2,
-  pf.max_fio2 as max_fio2,
   pf.min_fio2_set as min_fio2_set,
   pf.max_fio2_set as max_fio2_set,
-  pf.min_pao2 as min_pao2,
-  pf.max_pao2 as max_pao2,
   pf.min_arterial_pao2 as min_arterial_pao2,
   pf.max_arterial_pao2 as max_arterial_pao2,
   
