@@ -1,2 +1,0 @@
-- Euler method for SEIR in Python
-- Runge-Kutta method for SEIR in Python
